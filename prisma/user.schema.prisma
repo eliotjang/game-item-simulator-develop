@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+  output = "./userClient"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("USER_DATABASE_URL")
+}
+
+model Users {
+  userId String @id @default(uuid()) @map("user_id")
+  password String @map("password")
+  name String @map("name")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  Characters Characters[]
+
+  @@map("users")
+}
+
+model Characters {
+  characterId String @id @default(uuid()) @map("character_id")
+  UserId String @map("user_id")
+  title String @map("title")
+  content String @db.Text @map("content")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  User Users @relation(fields: [UserId], references: [userId], onDelete: Cascade)
+  CharacterInventory CharacterInventory?
+
+  @@map("characters")
+}
+
+model CharacterInventory {
+  characterInventoryId String @id @default(uuid()) @map("character_inventory_id")
+  CharacterId String @unique @map("character_id")
+  
+  //Items Items[]
+  //Items String
+    // Json.stringify(), Json.parse() 그리고 Items에 인벤토리 외래키를 추가해야하는 소요
+  Character Characters @relation(fields: [CharacterId], references: [characterId], onDelete: Cascade)
+
+  @@map("character_inventory")
+}
+
+model Items {
+  itemCode String @id @default(uuid()) @map("item_code")
+  itemName String @unique @map("item_name")
+  itemHealth Int @map("item_health")
+  itemPower Int @map("item_power")
+  itemPrice Int @map("item_price")
+
+  @@map("Items")
+}
