@@ -14,10 +14,10 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
- * Model GameTest
+ * Model Items
  * 
  */
-export type GameTest = $Result.DefaultSelection<Prisma.$GameTestPayload>
+export type Items = $Result.DefaultSelection<Prisma.$ItemsPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -26,8 +26,8 @@ export type GameTest = $Result.DefaultSelection<Prisma.$GameTestPayload>
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more GameTests
- * const gameTests = await prisma.gameTest.findMany()
+ * // Fetch zero or more Items
+ * const items = await prisma.items.findMany()
  * ```
  *
  * 
@@ -47,8 +47,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more GameTests
-   * const gameTests = await prisma.gameTest.findMany()
+   * // Fetch zero or more Items
+   * const items = await prisma.items.findMany()
    * ```
    *
    * 
@@ -142,14 +142,14 @@ export class PrismaClient<
   $extends: $Extensions.ExtendsHook<'extends', Prisma.TypeMapCb, ExtArgs>
 
       /**
-   * `prisma.gameTest`: Exposes CRUD operations for the **GameTest** model.
+   * `prisma.items`: Exposes CRUD operations for the **Items** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more GameTests
-    * const gameTests = await prisma.gameTest.findMany()
+    * // Fetch zero or more Items
+    * const items = await prisma.items.findMany()
     * ```
     */
-  get gameTest(): Prisma.GameTestDelegate<ExtArgs>;
+  get items(): Prisma.ItemsDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -627,7 +627,7 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    GameTest: 'GameTest'
+    Items: 'Items'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -644,73 +644,73 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'gameTest'
+      modelProps: 'items'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
-      GameTest: {
-        payload: Prisma.$GameTestPayload<ExtArgs>
-        fields: Prisma.GameTestFieldRefs
+      Items: {
+        payload: Prisma.$ItemsPayload<ExtArgs>
+        fields: Prisma.ItemsFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.GameTestFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$GameTestPayload> | null
+            args: Prisma.ItemsFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ItemsPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.GameTestFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$GameTestPayload>
+            args: Prisma.ItemsFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ItemsPayload>
           }
           findFirst: {
-            args: Prisma.GameTestFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$GameTestPayload> | null
+            args: Prisma.ItemsFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ItemsPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.GameTestFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$GameTestPayload>
+            args: Prisma.ItemsFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ItemsPayload>
           }
           findMany: {
-            args: Prisma.GameTestFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$GameTestPayload>[]
+            args: Prisma.ItemsFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ItemsPayload>[]
           }
           create: {
-            args: Prisma.GameTestCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$GameTestPayload>
+            args: Prisma.ItemsCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ItemsPayload>
           }
           createMany: {
-            args: Prisma.GameTestCreateManyArgs<ExtArgs>,
+            args: Prisma.ItemsCreateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           delete: {
-            args: Prisma.GameTestDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$GameTestPayload>
+            args: Prisma.ItemsDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ItemsPayload>
           }
           update: {
-            args: Prisma.GameTestUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$GameTestPayload>
+            args: Prisma.ItemsUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ItemsPayload>
           }
           deleteMany: {
-            args: Prisma.GameTestDeleteManyArgs<ExtArgs>,
+            args: Prisma.ItemsDeleteManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           updateMany: {
-            args: Prisma.GameTestUpdateManyArgs<ExtArgs>,
+            args: Prisma.ItemsUpdateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           upsert: {
-            args: Prisma.GameTestUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$GameTestPayload>
+            args: Prisma.ItemsUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ItemsPayload>
           }
           aggregate: {
-            args: Prisma.GameTestAggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateGameTest>
+            args: Prisma.ItemsAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateItems>
           }
           groupBy: {
-            args: Prisma.GameTestGroupByArgs<ExtArgs>,
-            result: $Utils.Optional<GameTestGroupByOutputType>[]
+            args: Prisma.ItemsGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<ItemsGroupByOutputType>[]
           }
           count: {
-            args: Prisma.GameTestCountArgs<ExtArgs>,
-            result: $Utils.Optional<GameTestCountAggregateOutputType> | number
+            args: Prisma.ItemsCountArgs<ExtArgs>,
+            result: $Utils.Optional<ItemsCountAggregateOutputType> | number
           }
         }
       }
@@ -875,388 +875,410 @@ export namespace Prisma {
    */
 
   /**
-   * Model GameTest
+   * Model Items
    */
 
-  export type AggregateGameTest = {
-    _count: GameTestCountAggregateOutputType | null
-    _avg: GameTestAvgAggregateOutputType | null
-    _sum: GameTestSumAggregateOutputType | null
-    _min: GameTestMinAggregateOutputType | null
-    _max: GameTestMaxAggregateOutputType | null
+  export type AggregateItems = {
+    _count: ItemsCountAggregateOutputType | null
+    _avg: ItemsAvgAggregateOutputType | null
+    _sum: ItemsSumAggregateOutputType | null
+    _min: ItemsMinAggregateOutputType | null
+    _max: ItemsMaxAggregateOutputType | null
   }
 
-  export type GameTestAvgAggregateOutputType = {
-    postId: number | null
+  export type ItemsAvgAggregateOutputType = {
+    itemCode: number | null
+    itemHealth: number | null
+    itemPower: number | null
+    itemPrice: number | null
   }
 
-  export type GameTestSumAggregateOutputType = {
-    postId: number | null
+  export type ItemsSumAggregateOutputType = {
+    itemCode: number | null
+    itemHealth: number | null
+    itemPower: number | null
+    itemPrice: number | null
   }
 
-  export type GameTestMinAggregateOutputType = {
-    postId: number | null
-    title: string | null
-    content: string | null
-    password: string | null
+  export type ItemsMinAggregateOutputType = {
+    itemCode: number | null
+    itemName: string | null
+    itemHealth: number | null
+    itemPower: number | null
+    itemPrice: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
-  export type GameTestMaxAggregateOutputType = {
-    postId: number | null
-    title: string | null
-    content: string | null
-    password: string | null
+  export type ItemsMaxAggregateOutputType = {
+    itemCode: number | null
+    itemName: string | null
+    itemHealth: number | null
+    itemPower: number | null
+    itemPrice: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
-  export type GameTestCountAggregateOutputType = {
-    postId: number
-    title: number
-    content: number
-    password: number
+  export type ItemsCountAggregateOutputType = {
+    itemCode: number
+    itemName: number
+    itemHealth: number
+    itemPower: number
+    itemPrice: number
     createdAt: number
     updatedAt: number
     _all: number
   }
 
 
-  export type GameTestAvgAggregateInputType = {
-    postId?: true
+  export type ItemsAvgAggregateInputType = {
+    itemCode?: true
+    itemHealth?: true
+    itemPower?: true
+    itemPrice?: true
   }
 
-  export type GameTestSumAggregateInputType = {
-    postId?: true
+  export type ItemsSumAggregateInputType = {
+    itemCode?: true
+    itemHealth?: true
+    itemPower?: true
+    itemPrice?: true
   }
 
-  export type GameTestMinAggregateInputType = {
-    postId?: true
-    title?: true
-    content?: true
-    password?: true
+  export type ItemsMinAggregateInputType = {
+    itemCode?: true
+    itemName?: true
+    itemHealth?: true
+    itemPower?: true
+    itemPrice?: true
     createdAt?: true
     updatedAt?: true
   }
 
-  export type GameTestMaxAggregateInputType = {
-    postId?: true
-    title?: true
-    content?: true
-    password?: true
+  export type ItemsMaxAggregateInputType = {
+    itemCode?: true
+    itemName?: true
+    itemHealth?: true
+    itemPower?: true
+    itemPrice?: true
     createdAt?: true
     updatedAt?: true
   }
 
-  export type GameTestCountAggregateInputType = {
-    postId?: true
-    title?: true
-    content?: true
-    password?: true
+  export type ItemsCountAggregateInputType = {
+    itemCode?: true
+    itemName?: true
+    itemHealth?: true
+    itemPower?: true
+    itemPrice?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
   }
 
-  export type GameTestAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ItemsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which GameTest to aggregate.
+     * Filter which Items to aggregate.
      */
-    where?: GameTestWhereInput
+    where?: ItemsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of GameTests to fetch.
+     * Determine the order of Items to fetch.
      */
-    orderBy?: GameTestOrderByWithRelationInput | GameTestOrderByWithRelationInput[]
+    orderBy?: ItemsOrderByWithRelationInput | ItemsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: GameTestWhereUniqueInput
+    cursor?: ItemsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` GameTests from the position of the cursor.
+     * Take `±n` Items from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` GameTests.
+     * Skip the first `n` Items.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned GameTests
+     * Count returned Items
     **/
-    _count?: true | GameTestCountAggregateInputType
+    _count?: true | ItemsCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: GameTestAvgAggregateInputType
+    _avg?: ItemsAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: GameTestSumAggregateInputType
+    _sum?: ItemsSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: GameTestMinAggregateInputType
+    _min?: ItemsMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: GameTestMaxAggregateInputType
+    _max?: ItemsMaxAggregateInputType
   }
 
-  export type GetGameTestAggregateType<T extends GameTestAggregateArgs> = {
-        [P in keyof T & keyof AggregateGameTest]: P extends '_count' | 'count'
+  export type GetItemsAggregateType<T extends ItemsAggregateArgs> = {
+        [P in keyof T & keyof AggregateItems]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateGameTest[P]>
-      : GetScalarType<T[P], AggregateGameTest[P]>
+        : GetScalarType<T[P], AggregateItems[P]>
+      : GetScalarType<T[P], AggregateItems[P]>
   }
 
 
 
 
-  export type GameTestGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: GameTestWhereInput
-    orderBy?: GameTestOrderByWithAggregationInput | GameTestOrderByWithAggregationInput[]
-    by: GameTestScalarFieldEnum[] | GameTestScalarFieldEnum
-    having?: GameTestScalarWhereWithAggregatesInput
+  export type ItemsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ItemsWhereInput
+    orderBy?: ItemsOrderByWithAggregationInput | ItemsOrderByWithAggregationInput[]
+    by: ItemsScalarFieldEnum[] | ItemsScalarFieldEnum
+    having?: ItemsScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: GameTestCountAggregateInputType | true
-    _avg?: GameTestAvgAggregateInputType
-    _sum?: GameTestSumAggregateInputType
-    _min?: GameTestMinAggregateInputType
-    _max?: GameTestMaxAggregateInputType
+    _count?: ItemsCountAggregateInputType | true
+    _avg?: ItemsAvgAggregateInputType
+    _sum?: ItemsSumAggregateInputType
+    _min?: ItemsMinAggregateInputType
+    _max?: ItemsMaxAggregateInputType
   }
 
-  export type GameTestGroupByOutputType = {
-    postId: number
-    title: string
-    content: string
-    password: string
+  export type ItemsGroupByOutputType = {
+    itemCode: number
+    itemName: string
+    itemHealth: number | null
+    itemPower: number | null
+    itemPrice: number
     createdAt: Date
     updatedAt: Date
-    _count: GameTestCountAggregateOutputType | null
-    _avg: GameTestAvgAggregateOutputType | null
-    _sum: GameTestSumAggregateOutputType | null
-    _min: GameTestMinAggregateOutputType | null
-    _max: GameTestMaxAggregateOutputType | null
+    _count: ItemsCountAggregateOutputType | null
+    _avg: ItemsAvgAggregateOutputType | null
+    _sum: ItemsSumAggregateOutputType | null
+    _min: ItemsMinAggregateOutputType | null
+    _max: ItemsMaxAggregateOutputType | null
   }
 
-  type GetGameTestGroupByPayload<T extends GameTestGroupByArgs> = Prisma.PrismaPromise<
+  type GetItemsGroupByPayload<T extends ItemsGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<GameTestGroupByOutputType, T['by']> &
+      PickEnumerable<ItemsGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof GameTestGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof ItemsGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], GameTestGroupByOutputType[P]>
-            : GetScalarType<T[P], GameTestGroupByOutputType[P]>
+              : GetScalarType<T[P], ItemsGroupByOutputType[P]>
+            : GetScalarType<T[P], ItemsGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type GameTestSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    postId?: boolean
-    title?: boolean
-    content?: boolean
-    password?: boolean
+  export type ItemsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    itemCode?: boolean
+    itemName?: boolean
+    itemHealth?: boolean
+    itemPower?: boolean
+    itemPrice?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["gameTest"]>
+  }, ExtArgs["result"]["items"]>
 
-  export type GameTestSelectScalar = {
-    postId?: boolean
-    title?: boolean
-    content?: boolean
-    password?: boolean
+  export type ItemsSelectScalar = {
+    itemCode?: boolean
+    itemName?: boolean
+    itemHealth?: boolean
+    itemPower?: boolean
+    itemPrice?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
 
 
-  export type $GameTestPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "GameTest"
+  export type $ItemsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Items"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
-      postId: number
-      title: string
-      content: string
-      password: string
+      itemCode: number
+      itemName: string
+      itemHealth: number | null
+      itemPower: number | null
+      itemPrice: number
       createdAt: Date
       updatedAt: Date
-    }, ExtArgs["result"]["gameTest"]>
+    }, ExtArgs["result"]["items"]>
     composites: {}
   }
 
 
-  type GameTestGetPayload<S extends boolean | null | undefined | GameTestDefaultArgs> = $Result.GetResult<Prisma.$GameTestPayload, S>
+  type ItemsGetPayload<S extends boolean | null | undefined | ItemsDefaultArgs> = $Result.GetResult<Prisma.$ItemsPayload, S>
 
-  type GameTestCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<GameTestFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: GameTestCountAggregateInputType | true
+  type ItemsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<ItemsFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: ItemsCountAggregateInputType | true
     }
 
-  export interface GameTestDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['GameTest'], meta: { name: 'GameTest' } }
+  export interface ItemsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Items'], meta: { name: 'Items' } }
     /**
-     * Find zero or one GameTest that matches the filter.
-     * @param {GameTestFindUniqueArgs} args - Arguments to find a GameTest
+     * Find zero or one Items that matches the filter.
+     * @param {ItemsFindUniqueArgs} args - Arguments to find a Items
      * @example
-     * // Get one GameTest
-     * const gameTest = await prisma.gameTest.findUnique({
+     * // Get one Items
+     * const items = await prisma.items.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUnique<T extends GameTestFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, GameTestFindUniqueArgs<ExtArgs>>
-    ): Prisma__GameTestClient<$Result.GetResult<Prisma.$GameTestPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+    findUnique<T extends ItemsFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, ItemsFindUniqueArgs<ExtArgs>>
+    ): Prisma__ItemsClient<$Result.GetResult<Prisma.$ItemsPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one GameTest that matches the filter or throw an error with `error.code='P2025'` 
+     * Find one Items that matches the filter or throw an error with `error.code='P2025'` 
      * if no matches were found.
-     * @param {GameTestFindUniqueOrThrowArgs} args - Arguments to find a GameTest
+     * @param {ItemsFindUniqueOrThrowArgs} args - Arguments to find a Items
      * @example
-     * // Get one GameTest
-     * const gameTest = await prisma.gameTest.findUniqueOrThrow({
+     * // Get one Items
+     * const items = await prisma.items.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUniqueOrThrow<T extends GameTestFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, GameTestFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__GameTestClient<$Result.GetResult<Prisma.$GameTestPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+    findUniqueOrThrow<T extends ItemsFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, ItemsFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__ItemsClient<$Result.GetResult<Prisma.$ItemsPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
 
     /**
-     * Find the first GameTest that matches the filter.
+     * Find the first Items that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GameTestFindFirstArgs} args - Arguments to find a GameTest
+     * @param {ItemsFindFirstArgs} args - Arguments to find a Items
      * @example
-     * // Get one GameTest
-     * const gameTest = await prisma.gameTest.findFirst({
+     * // Get one Items
+     * const items = await prisma.items.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirst<T extends GameTestFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, GameTestFindFirstArgs<ExtArgs>>
-    ): Prisma__GameTestClient<$Result.GetResult<Prisma.$GameTestPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+    findFirst<T extends ItemsFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, ItemsFindFirstArgs<ExtArgs>>
+    ): Prisma__ItemsClient<$Result.GetResult<Prisma.$ItemsPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
 
     /**
-     * Find the first GameTest that matches the filter or
+     * Find the first Items that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GameTestFindFirstOrThrowArgs} args - Arguments to find a GameTest
+     * @param {ItemsFindFirstOrThrowArgs} args - Arguments to find a Items
      * @example
-     * // Get one GameTest
-     * const gameTest = await prisma.gameTest.findFirstOrThrow({
+     * // Get one Items
+     * const items = await prisma.items.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirstOrThrow<T extends GameTestFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, GameTestFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__GameTestClient<$Result.GetResult<Prisma.$GameTestPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+    findFirstOrThrow<T extends ItemsFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, ItemsFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__ItemsClient<$Result.GetResult<Prisma.$ItemsPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
 
     /**
-     * Find zero or more GameTests that matches the filter.
+     * Find zero or more Items that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GameTestFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {ItemsFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all GameTests
-     * const gameTests = await prisma.gameTest.findMany()
+     * // Get all Items
+     * const items = await prisma.items.findMany()
      * 
-     * // Get first 10 GameTests
-     * const gameTests = await prisma.gameTest.findMany({ take: 10 })
+     * // Get first 10 Items
+     * const items = await prisma.items.findMany({ take: 10 })
      * 
-     * // Only select the `postId`
-     * const gameTestWithPostIdOnly = await prisma.gameTest.findMany({ select: { postId: true } })
+     * // Only select the `itemCode`
+     * const itemsWithItemCodeOnly = await prisma.items.findMany({ select: { itemCode: true } })
      * 
     **/
-    findMany<T extends GameTestFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, GameTestFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GameTestPayload<ExtArgs>, T, 'findMany'>>
+    findMany<T extends ItemsFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, ItemsFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ItemsPayload<ExtArgs>, T, 'findMany'>>
 
     /**
-     * Create a GameTest.
-     * @param {GameTestCreateArgs} args - Arguments to create a GameTest.
+     * Create a Items.
+     * @param {ItemsCreateArgs} args - Arguments to create a Items.
      * @example
-     * // Create one GameTest
-     * const GameTest = await prisma.gameTest.create({
+     * // Create one Items
+     * const Items = await prisma.items.create({
      *   data: {
-     *     // ... data to create a GameTest
+     *     // ... data to create a Items
      *   }
      * })
      * 
     **/
-    create<T extends GameTestCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, GameTestCreateArgs<ExtArgs>>
-    ): Prisma__GameTestClient<$Result.GetResult<Prisma.$GameTestPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+    create<T extends ItemsCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, ItemsCreateArgs<ExtArgs>>
+    ): Prisma__ItemsClient<$Result.GetResult<Prisma.$ItemsPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
 
     /**
-     * Create many GameTests.
-     * @param {GameTestCreateManyArgs} args - Arguments to create many GameTests.
+     * Create many Items.
+     * @param {ItemsCreateManyArgs} args - Arguments to create many Items.
      * @example
-     * // Create many GameTests
-     * const gameTest = await prisma.gameTest.createMany({
+     * // Create many Items
+     * const items = await prisma.items.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
     **/
-    createMany<T extends GameTestCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, GameTestCreateManyArgs<ExtArgs>>
+    createMany<T extends ItemsCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, ItemsCreateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a GameTest.
-     * @param {GameTestDeleteArgs} args - Arguments to delete one GameTest.
+     * Delete a Items.
+     * @param {ItemsDeleteArgs} args - Arguments to delete one Items.
      * @example
-     * // Delete one GameTest
-     * const GameTest = await prisma.gameTest.delete({
+     * // Delete one Items
+     * const Items = await prisma.items.delete({
      *   where: {
-     *     // ... filter to delete one GameTest
+     *     // ... filter to delete one Items
      *   }
      * })
      * 
     **/
-    delete<T extends GameTestDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, GameTestDeleteArgs<ExtArgs>>
-    ): Prisma__GameTestClient<$Result.GetResult<Prisma.$GameTestPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+    delete<T extends ItemsDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, ItemsDeleteArgs<ExtArgs>>
+    ): Prisma__ItemsClient<$Result.GetResult<Prisma.$ItemsPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
 
     /**
-     * Update one GameTest.
-     * @param {GameTestUpdateArgs} args - Arguments to update one GameTest.
+     * Update one Items.
+     * @param {ItemsUpdateArgs} args - Arguments to update one Items.
      * @example
-     * // Update one GameTest
-     * const gameTest = await prisma.gameTest.update({
+     * // Update one Items
+     * const items = await prisma.items.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1266,34 +1288,34 @@ export namespace Prisma {
      * })
      * 
     **/
-    update<T extends GameTestUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, GameTestUpdateArgs<ExtArgs>>
-    ): Prisma__GameTestClient<$Result.GetResult<Prisma.$GameTestPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+    update<T extends ItemsUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, ItemsUpdateArgs<ExtArgs>>
+    ): Prisma__ItemsClient<$Result.GetResult<Prisma.$ItemsPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
 
     /**
-     * Delete zero or more GameTests.
-     * @param {GameTestDeleteManyArgs} args - Arguments to filter GameTests to delete.
+     * Delete zero or more Items.
+     * @param {ItemsDeleteManyArgs} args - Arguments to filter Items to delete.
      * @example
-     * // Delete a few GameTests
-     * const { count } = await prisma.gameTest.deleteMany({
+     * // Delete a few Items
+     * const { count } = await prisma.items.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
     **/
-    deleteMany<T extends GameTestDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, GameTestDeleteManyArgs<ExtArgs>>
+    deleteMany<T extends ItemsDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, ItemsDeleteManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more GameTests.
+     * Update zero or more Items.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GameTestUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {ItemsUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many GameTests
-     * const gameTest = await prisma.gameTest.updateMany({
+     * // Update many Items
+     * const items = await prisma.items.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1303,59 +1325,59 @@ export namespace Prisma {
      * })
      * 
     **/
-    updateMany<T extends GameTestUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, GameTestUpdateManyArgs<ExtArgs>>
+    updateMany<T extends ItemsUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, ItemsUpdateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one GameTest.
-     * @param {GameTestUpsertArgs} args - Arguments to update or create a GameTest.
+     * Create or update one Items.
+     * @param {ItemsUpsertArgs} args - Arguments to update or create a Items.
      * @example
-     * // Update or create a GameTest
-     * const gameTest = await prisma.gameTest.upsert({
+     * // Update or create a Items
+     * const items = await prisma.items.upsert({
      *   create: {
-     *     // ... data to create a GameTest
+     *     // ... data to create a Items
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the GameTest we want to update
+     *     // ... the filter for the Items we want to update
      *   }
      * })
     **/
-    upsert<T extends GameTestUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, GameTestUpsertArgs<ExtArgs>>
-    ): Prisma__GameTestClient<$Result.GetResult<Prisma.$GameTestPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+    upsert<T extends ItemsUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, ItemsUpsertArgs<ExtArgs>>
+    ): Prisma__ItemsClient<$Result.GetResult<Prisma.$ItemsPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
 
     /**
-     * Count the number of GameTests.
+     * Count the number of Items.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GameTestCountArgs} args - Arguments to filter GameTests to count.
+     * @param {ItemsCountArgs} args - Arguments to filter Items to count.
      * @example
-     * // Count the number of GameTests
-     * const count = await prisma.gameTest.count({
+     * // Count the number of Items
+     * const count = await prisma.items.count({
      *   where: {
-     *     // ... the filter for the GameTests we want to count
+     *     // ... the filter for the Items we want to count
      *   }
      * })
     **/
-    count<T extends GameTestCountArgs>(
-      args?: Subset<T, GameTestCountArgs>,
+    count<T extends ItemsCountArgs>(
+      args?: Subset<T, ItemsCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], GameTestCountAggregateOutputType>
+          : GetScalarType<T['select'], ItemsCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a GameTest.
+     * Allows you to perform aggregations operations on a Items.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GameTestAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {ItemsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -1375,13 +1397,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends GameTestAggregateArgs>(args: Subset<T, GameTestAggregateArgs>): Prisma.PrismaPromise<GetGameTestAggregateType<T>>
+    aggregate<T extends ItemsAggregateArgs>(args: Subset<T, ItemsAggregateArgs>): Prisma.PrismaPromise<GetItemsAggregateType<T>>
 
     /**
-     * Group by GameTest.
+     * Group by Items.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GameTestGroupByArgs} args - Group by arguments.
+     * @param {ItemsGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -1396,14 +1418,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends GameTestGroupByArgs,
+      T extends ItemsGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: GameTestGroupByArgs['orderBy'] }
-        : { orderBy?: GameTestGroupByArgs['orderBy'] },
+        ? { orderBy: ItemsGroupByArgs['orderBy'] }
+        : { orderBy?: ItemsGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -1452,20 +1474,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, GameTestGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetGameTestGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, ItemsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetItemsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the GameTest model
+   * Fields of the Items model
    */
-  readonly fields: GameTestFieldRefs;
+  readonly fields: ItemsFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for GameTest.
+   * The delegate class that acts as a "Promise-like" for Items.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__GameTestClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__ItemsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
 
@@ -1494,285 +1516,286 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the GameTest model
+   * Fields of the Items model
    */ 
-  interface GameTestFieldRefs {
-    readonly postId: FieldRef<"GameTest", 'Int'>
-    readonly title: FieldRef<"GameTest", 'String'>
-    readonly content: FieldRef<"GameTest", 'String'>
-    readonly password: FieldRef<"GameTest", 'String'>
-    readonly createdAt: FieldRef<"GameTest", 'DateTime'>
-    readonly updatedAt: FieldRef<"GameTest", 'DateTime'>
+  interface ItemsFieldRefs {
+    readonly itemCode: FieldRef<"Items", 'Int'>
+    readonly itemName: FieldRef<"Items", 'String'>
+    readonly itemHealth: FieldRef<"Items", 'Int'>
+    readonly itemPower: FieldRef<"Items", 'Int'>
+    readonly itemPrice: FieldRef<"Items", 'Int'>
+    readonly createdAt: FieldRef<"Items", 'DateTime'>
+    readonly updatedAt: FieldRef<"Items", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * GameTest findUnique
+   * Items findUnique
    */
-  export type GameTestFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ItemsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the GameTest
+     * Select specific fields to fetch from the Items
      */
-    select?: GameTestSelect<ExtArgs> | null
+    select?: ItemsSelect<ExtArgs> | null
     /**
-     * Filter, which GameTest to fetch.
+     * Filter, which Items to fetch.
      */
-    where: GameTestWhereUniqueInput
+    where: ItemsWhereUniqueInput
   }
 
   /**
-   * GameTest findUniqueOrThrow
+   * Items findUniqueOrThrow
    */
-  export type GameTestFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ItemsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the GameTest
+     * Select specific fields to fetch from the Items
      */
-    select?: GameTestSelect<ExtArgs> | null
+    select?: ItemsSelect<ExtArgs> | null
     /**
-     * Filter, which GameTest to fetch.
+     * Filter, which Items to fetch.
      */
-    where: GameTestWhereUniqueInput
+    where: ItemsWhereUniqueInput
   }
 
   /**
-   * GameTest findFirst
+   * Items findFirst
    */
-  export type GameTestFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ItemsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the GameTest
+     * Select specific fields to fetch from the Items
      */
-    select?: GameTestSelect<ExtArgs> | null
+    select?: ItemsSelect<ExtArgs> | null
     /**
-     * Filter, which GameTest to fetch.
+     * Filter, which Items to fetch.
      */
-    where?: GameTestWhereInput
+    where?: ItemsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of GameTests to fetch.
+     * Determine the order of Items to fetch.
      */
-    orderBy?: GameTestOrderByWithRelationInput | GameTestOrderByWithRelationInput[]
+    orderBy?: ItemsOrderByWithRelationInput | ItemsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for GameTests.
+     * Sets the position for searching for Items.
      */
-    cursor?: GameTestWhereUniqueInput
+    cursor?: ItemsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` GameTests from the position of the cursor.
+     * Take `±n` Items from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` GameTests.
+     * Skip the first `n` Items.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of GameTests.
+     * Filter by unique combinations of Items.
      */
-    distinct?: GameTestScalarFieldEnum | GameTestScalarFieldEnum[]
+    distinct?: ItemsScalarFieldEnum | ItemsScalarFieldEnum[]
   }
 
   /**
-   * GameTest findFirstOrThrow
+   * Items findFirstOrThrow
    */
-  export type GameTestFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ItemsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the GameTest
+     * Select specific fields to fetch from the Items
      */
-    select?: GameTestSelect<ExtArgs> | null
+    select?: ItemsSelect<ExtArgs> | null
     /**
-     * Filter, which GameTest to fetch.
+     * Filter, which Items to fetch.
      */
-    where?: GameTestWhereInput
+    where?: ItemsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of GameTests to fetch.
+     * Determine the order of Items to fetch.
      */
-    orderBy?: GameTestOrderByWithRelationInput | GameTestOrderByWithRelationInput[]
+    orderBy?: ItemsOrderByWithRelationInput | ItemsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for GameTests.
+     * Sets the position for searching for Items.
      */
-    cursor?: GameTestWhereUniqueInput
+    cursor?: ItemsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` GameTests from the position of the cursor.
+     * Take `±n` Items from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` GameTests.
+     * Skip the first `n` Items.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of GameTests.
+     * Filter by unique combinations of Items.
      */
-    distinct?: GameTestScalarFieldEnum | GameTestScalarFieldEnum[]
+    distinct?: ItemsScalarFieldEnum | ItemsScalarFieldEnum[]
   }
 
   /**
-   * GameTest findMany
+   * Items findMany
    */
-  export type GameTestFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ItemsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the GameTest
+     * Select specific fields to fetch from the Items
      */
-    select?: GameTestSelect<ExtArgs> | null
+    select?: ItemsSelect<ExtArgs> | null
     /**
-     * Filter, which GameTests to fetch.
+     * Filter, which Items to fetch.
      */
-    where?: GameTestWhereInput
+    where?: ItemsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of GameTests to fetch.
+     * Determine the order of Items to fetch.
      */
-    orderBy?: GameTestOrderByWithRelationInput | GameTestOrderByWithRelationInput[]
+    orderBy?: ItemsOrderByWithRelationInput | ItemsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing GameTests.
+     * Sets the position for listing Items.
      */
-    cursor?: GameTestWhereUniqueInput
+    cursor?: ItemsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` GameTests from the position of the cursor.
+     * Take `±n` Items from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` GameTests.
+     * Skip the first `n` Items.
      */
     skip?: number
-    distinct?: GameTestScalarFieldEnum | GameTestScalarFieldEnum[]
+    distinct?: ItemsScalarFieldEnum | ItemsScalarFieldEnum[]
   }
 
   /**
-   * GameTest create
+   * Items create
    */
-  export type GameTestCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ItemsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the GameTest
+     * Select specific fields to fetch from the Items
      */
-    select?: GameTestSelect<ExtArgs> | null
+    select?: ItemsSelect<ExtArgs> | null
     /**
-     * The data needed to create a GameTest.
+     * The data needed to create a Items.
      */
-    data: XOR<GameTestCreateInput, GameTestUncheckedCreateInput>
+    data: XOR<ItemsCreateInput, ItemsUncheckedCreateInput>
   }
 
   /**
-   * GameTest createMany
+   * Items createMany
    */
-  export type GameTestCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ItemsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many GameTests.
+     * The data used to create many Items.
      */
-    data: GameTestCreateManyInput | GameTestCreateManyInput[]
+    data: ItemsCreateManyInput | ItemsCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * GameTest update
+   * Items update
    */
-  export type GameTestUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ItemsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the GameTest
+     * Select specific fields to fetch from the Items
      */
-    select?: GameTestSelect<ExtArgs> | null
+    select?: ItemsSelect<ExtArgs> | null
     /**
-     * The data needed to update a GameTest.
+     * The data needed to update a Items.
      */
-    data: XOR<GameTestUpdateInput, GameTestUncheckedUpdateInput>
+    data: XOR<ItemsUpdateInput, ItemsUncheckedUpdateInput>
     /**
-     * Choose, which GameTest to update.
+     * Choose, which Items to update.
      */
-    where: GameTestWhereUniqueInput
+    where: ItemsWhereUniqueInput
   }
 
   /**
-   * GameTest updateMany
+   * Items updateMany
    */
-  export type GameTestUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ItemsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update GameTests.
+     * The data used to update Items.
      */
-    data: XOR<GameTestUpdateManyMutationInput, GameTestUncheckedUpdateManyInput>
+    data: XOR<ItemsUpdateManyMutationInput, ItemsUncheckedUpdateManyInput>
     /**
-     * Filter which GameTests to update
+     * Filter which Items to update
      */
-    where?: GameTestWhereInput
+    where?: ItemsWhereInput
   }
 
   /**
-   * GameTest upsert
+   * Items upsert
    */
-  export type GameTestUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ItemsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the GameTest
+     * Select specific fields to fetch from the Items
      */
-    select?: GameTestSelect<ExtArgs> | null
+    select?: ItemsSelect<ExtArgs> | null
     /**
-     * The filter to search for the GameTest to update in case it exists.
+     * The filter to search for the Items to update in case it exists.
      */
-    where: GameTestWhereUniqueInput
+    where: ItemsWhereUniqueInput
     /**
-     * In case the GameTest found by the `where` argument doesn't exist, create a new GameTest with this data.
+     * In case the Items found by the `where` argument doesn't exist, create a new Items with this data.
      */
-    create: XOR<GameTestCreateInput, GameTestUncheckedCreateInput>
+    create: XOR<ItemsCreateInput, ItemsUncheckedCreateInput>
     /**
-     * In case the GameTest was found with the provided `where` argument, update it with this data.
+     * In case the Items was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<GameTestUpdateInput, GameTestUncheckedUpdateInput>
+    update: XOR<ItemsUpdateInput, ItemsUncheckedUpdateInput>
   }
 
   /**
-   * GameTest delete
+   * Items delete
    */
-  export type GameTestDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ItemsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the GameTest
+     * Select specific fields to fetch from the Items
      */
-    select?: GameTestSelect<ExtArgs> | null
+    select?: ItemsSelect<ExtArgs> | null
     /**
-     * Filter which GameTest to delete.
+     * Filter which Items to delete.
      */
-    where: GameTestWhereUniqueInput
+    where: ItemsWhereUniqueInput
   }
 
   /**
-   * GameTest deleteMany
+   * Items deleteMany
    */
-  export type GameTestDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ItemsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which GameTests to delete
+     * Filter which Items to delete
      */
-    where?: GameTestWhereInput
+    where?: ItemsWhereInput
   }
 
   /**
-   * GameTest without action
+   * Items without action
    */
-  export type GameTestDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ItemsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the GameTest
+     * Select specific fields to fetch from the Items
      */
-    select?: GameTestSelect<ExtArgs> | null
+    select?: ItemsSelect<ExtArgs> | null
   }
 
 
@@ -1790,16 +1813,17 @@ export namespace Prisma {
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-  export const GameTestScalarFieldEnum: {
-    postId: 'postId',
-    title: 'title',
-    content: 'content',
-    password: 'password',
+  export const ItemsScalarFieldEnum: {
+    itemCode: 'itemCode',
+    itemName: 'itemName',
+    itemHealth: 'itemHealth',
+    itemPower: 'itemPower',
+    itemPrice: 'itemPrice',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
 
-  export type GameTestScalarFieldEnum = (typeof GameTestScalarFieldEnum)[keyof typeof GameTestScalarFieldEnum]
+  export type ItemsScalarFieldEnum = (typeof ItemsScalarFieldEnum)[keyof typeof ItemsScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -1808,6 +1832,14 @@ export namespace Prisma {
   };
 
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
   /**
@@ -1846,121 +1878,136 @@ export namespace Prisma {
    */
 
 
-  export type GameTestWhereInput = {
-    AND?: GameTestWhereInput | GameTestWhereInput[]
-    OR?: GameTestWhereInput[]
-    NOT?: GameTestWhereInput | GameTestWhereInput[]
-    postId?: IntFilter<"GameTest"> | number
-    title?: StringFilter<"GameTest"> | string
-    content?: StringFilter<"GameTest"> | string
-    password?: StringFilter<"GameTest"> | string
-    createdAt?: DateTimeFilter<"GameTest"> | Date | string
-    updatedAt?: DateTimeFilter<"GameTest"> | Date | string
+  export type ItemsWhereInput = {
+    AND?: ItemsWhereInput | ItemsWhereInput[]
+    OR?: ItemsWhereInput[]
+    NOT?: ItemsWhereInput | ItemsWhereInput[]
+    itemCode?: IntFilter<"Items"> | number
+    itemName?: StringFilter<"Items"> | string
+    itemHealth?: IntNullableFilter<"Items"> | number | null
+    itemPower?: IntNullableFilter<"Items"> | number | null
+    itemPrice?: IntFilter<"Items"> | number
+    createdAt?: DateTimeFilter<"Items"> | Date | string
+    updatedAt?: DateTimeFilter<"Items"> | Date | string
   }
 
-  export type GameTestOrderByWithRelationInput = {
-    postId?: SortOrder
-    title?: SortOrder
-    content?: SortOrder
-    password?: SortOrder
+  export type ItemsOrderByWithRelationInput = {
+    itemCode?: SortOrder
+    itemName?: SortOrder
+    itemHealth?: SortOrderInput | SortOrder
+    itemPower?: SortOrderInput | SortOrder
+    itemPrice?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type GameTestWhereUniqueInput = Prisma.AtLeast<{
-    postId?: number
-    AND?: GameTestWhereInput | GameTestWhereInput[]
-    OR?: GameTestWhereInput[]
-    NOT?: GameTestWhereInput | GameTestWhereInput[]
-    title?: StringFilter<"GameTest"> | string
-    content?: StringFilter<"GameTest"> | string
-    password?: StringFilter<"GameTest"> | string
-    createdAt?: DateTimeFilter<"GameTest"> | Date | string
-    updatedAt?: DateTimeFilter<"GameTest"> | Date | string
-  }, "postId">
+  export type ItemsWhereUniqueInput = Prisma.AtLeast<{
+    itemCode?: number
+    AND?: ItemsWhereInput | ItemsWhereInput[]
+    OR?: ItemsWhereInput[]
+    NOT?: ItemsWhereInput | ItemsWhereInput[]
+    itemName?: StringFilter<"Items"> | string
+    itemHealth?: IntNullableFilter<"Items"> | number | null
+    itemPower?: IntNullableFilter<"Items"> | number | null
+    itemPrice?: IntFilter<"Items"> | number
+    createdAt?: DateTimeFilter<"Items"> | Date | string
+    updatedAt?: DateTimeFilter<"Items"> | Date | string
+  }, "itemCode">
 
-  export type GameTestOrderByWithAggregationInput = {
-    postId?: SortOrder
-    title?: SortOrder
-    content?: SortOrder
-    password?: SortOrder
+  export type ItemsOrderByWithAggregationInput = {
+    itemCode?: SortOrder
+    itemName?: SortOrder
+    itemHealth?: SortOrderInput | SortOrder
+    itemPower?: SortOrderInput | SortOrder
+    itemPrice?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    _count?: GameTestCountOrderByAggregateInput
-    _avg?: GameTestAvgOrderByAggregateInput
-    _max?: GameTestMaxOrderByAggregateInput
-    _min?: GameTestMinOrderByAggregateInput
-    _sum?: GameTestSumOrderByAggregateInput
+    _count?: ItemsCountOrderByAggregateInput
+    _avg?: ItemsAvgOrderByAggregateInput
+    _max?: ItemsMaxOrderByAggregateInput
+    _min?: ItemsMinOrderByAggregateInput
+    _sum?: ItemsSumOrderByAggregateInput
   }
 
-  export type GameTestScalarWhereWithAggregatesInput = {
-    AND?: GameTestScalarWhereWithAggregatesInput | GameTestScalarWhereWithAggregatesInput[]
-    OR?: GameTestScalarWhereWithAggregatesInput[]
-    NOT?: GameTestScalarWhereWithAggregatesInput | GameTestScalarWhereWithAggregatesInput[]
-    postId?: IntWithAggregatesFilter<"GameTest"> | number
-    title?: StringWithAggregatesFilter<"GameTest"> | string
-    content?: StringWithAggregatesFilter<"GameTest"> | string
-    password?: StringWithAggregatesFilter<"GameTest"> | string
-    createdAt?: DateTimeWithAggregatesFilter<"GameTest"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"GameTest"> | Date | string
+  export type ItemsScalarWhereWithAggregatesInput = {
+    AND?: ItemsScalarWhereWithAggregatesInput | ItemsScalarWhereWithAggregatesInput[]
+    OR?: ItemsScalarWhereWithAggregatesInput[]
+    NOT?: ItemsScalarWhereWithAggregatesInput | ItemsScalarWhereWithAggregatesInput[]
+    itemCode?: IntWithAggregatesFilter<"Items"> | number
+    itemName?: StringWithAggregatesFilter<"Items"> | string
+    itemHealth?: IntNullableWithAggregatesFilter<"Items"> | number | null
+    itemPower?: IntNullableWithAggregatesFilter<"Items"> | number | null
+    itemPrice?: IntWithAggregatesFilter<"Items"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Items"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Items"> | Date | string
   }
 
-  export type GameTestCreateInput = {
-    title: string
-    content: string
-    password: string
+  export type ItemsCreateInput = {
+    itemCode: number
+    itemName: string
+    itemHealth?: number | null
+    itemPower?: number | null
+    itemPrice: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type GameTestUncheckedCreateInput = {
-    postId?: number
-    title: string
-    content: string
-    password: string
+  export type ItemsUncheckedCreateInput = {
+    itemCode: number
+    itemName: string
+    itemHealth?: number | null
+    itemPower?: number | null
+    itemPrice: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type GameTestUpdateInput = {
-    title?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
+  export type ItemsUpdateInput = {
+    itemCode?: IntFieldUpdateOperationsInput | number
+    itemName?: StringFieldUpdateOperationsInput | string
+    itemHealth?: NullableIntFieldUpdateOperationsInput | number | null
+    itemPower?: NullableIntFieldUpdateOperationsInput | number | null
+    itemPrice?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type GameTestUncheckedUpdateInput = {
-    postId?: IntFieldUpdateOperationsInput | number
-    title?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
+  export type ItemsUncheckedUpdateInput = {
+    itemCode?: IntFieldUpdateOperationsInput | number
+    itemName?: StringFieldUpdateOperationsInput | string
+    itemHealth?: NullableIntFieldUpdateOperationsInput | number | null
+    itemPower?: NullableIntFieldUpdateOperationsInput | number | null
+    itemPrice?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type GameTestCreateManyInput = {
-    postId?: number
-    title: string
-    content: string
-    password: string
+  export type ItemsCreateManyInput = {
+    itemCode: number
+    itemName: string
+    itemHealth?: number | null
+    itemPower?: number | null
+    itemPrice: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type GameTestUpdateManyMutationInput = {
-    title?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
+  export type ItemsUpdateManyMutationInput = {
+    itemCode?: IntFieldUpdateOperationsInput | number
+    itemName?: StringFieldUpdateOperationsInput | string
+    itemHealth?: NullableIntFieldUpdateOperationsInput | number | null
+    itemPower?: NullableIntFieldUpdateOperationsInput | number | null
+    itemPrice?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type GameTestUncheckedUpdateManyInput = {
-    postId?: IntFieldUpdateOperationsInput | number
-    title?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
+  export type ItemsUncheckedUpdateManyInput = {
+    itemCode?: IntFieldUpdateOperationsInput | number
+    itemName?: StringFieldUpdateOperationsInput | string
+    itemHealth?: NullableIntFieldUpdateOperationsInput | number | null
+    itemPower?: NullableIntFieldUpdateOperationsInput | number | null
+    itemPrice?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -1990,6 +2037,17 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[]
@@ -2001,39 +2059,53 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type GameTestCountOrderByAggregateInput = {
-    postId?: SortOrder
-    title?: SortOrder
-    content?: SortOrder
-    password?: SortOrder
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
+  export type ItemsCountOrderByAggregateInput = {
+    itemCode?: SortOrder
+    itemName?: SortOrder
+    itemHealth?: SortOrder
+    itemPower?: SortOrder
+    itemPrice?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type GameTestAvgOrderByAggregateInput = {
-    postId?: SortOrder
+  export type ItemsAvgOrderByAggregateInput = {
+    itemCode?: SortOrder
+    itemHealth?: SortOrder
+    itemPower?: SortOrder
+    itemPrice?: SortOrder
   }
 
-  export type GameTestMaxOrderByAggregateInput = {
-    postId?: SortOrder
-    title?: SortOrder
-    content?: SortOrder
-    password?: SortOrder
+  export type ItemsMaxOrderByAggregateInput = {
+    itemCode?: SortOrder
+    itemName?: SortOrder
+    itemHealth?: SortOrder
+    itemPower?: SortOrder
+    itemPrice?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type GameTestMinOrderByAggregateInput = {
-    postId?: SortOrder
-    title?: SortOrder
-    content?: SortOrder
-    password?: SortOrder
+  export type ItemsMinOrderByAggregateInput = {
+    itemCode?: SortOrder
+    itemName?: SortOrder
+    itemHealth?: SortOrder
+    itemPower?: SortOrder
+    itemPrice?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type GameTestSumOrderByAggregateInput = {
-    postId?: SortOrder
+  export type ItemsSumOrderByAggregateInput = {
+    itemCode?: SortOrder
+    itemHealth?: SortOrder
+    itemPower?: SortOrder
+    itemPrice?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -2069,6 +2141,22 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[]
@@ -2083,20 +2171,28 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type StringFieldUpdateOperationsInput = {
-    set?: string
-  }
-
-  export type DateTimeFieldUpdateOperationsInput = {
-    set?: Date | string
-  }
-
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type StringFieldUpdateOperationsInput = {
+    set?: string
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -2122,6 +2218,17 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
@@ -2179,6 +2286,33 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[]
@@ -2199,9 +2333,9 @@ export namespace Prisma {
    * Aliases for legacy arg types
    */
     /**
-     * @deprecated Use GameTestDefaultArgs instead
+     * @deprecated Use ItemsDefaultArgs instead
      */
-    export type GameTestArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = GameTestDefaultArgs<ExtArgs>
+    export type ItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ItemsDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

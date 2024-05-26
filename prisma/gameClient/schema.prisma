@@ -14,13 +14,14 @@ datasource db {
   url      = env("GAME_DATABASE_URL")
 }
 
-model GameTest {
-  postId    Int      @id @default(autoincrement()) @map("postId")
-  title     String   @map("title")
-  content   String   @map("content") @db.Text
-  password  String   @map("password")
-  createdAt DateTime @default(now()) @map("createdAt")
-  updatedAt DateTime @updatedAt @map("updatedAt")
+model Items {
+  itemCode   Int      @id @map("item_code")
+  itemName   String   @map("item_name")
+  itemHealth Int?     @map("item_health")
+  itemPower  Int?     @map("item_power")
+  itemPrice  Int      @map("item_price")
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
 
-  @@map("game_test")
+  @@map("Items")
 }
