@@ -130,8 +130,10 @@ exports.Prisma.UsersScalarFieldEnum = {
 exports.Prisma.CharactersScalarFieldEnum = {
   characterId: 'characterId',
   UserId: 'UserId',
-  title: 'title',
-  content: 'content',
+  characterName: 'characterName',
+  characterPower: 'characterPower',
+  characterHealth: 'characterHealth',
+  gameMoney: 'gameMoney',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };

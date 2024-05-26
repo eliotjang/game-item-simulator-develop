@@ -2083,24 +2083,44 @@ export namespace Prisma {
 
   export type AggregateCharacters = {
     _count: CharactersCountAggregateOutputType | null
+    _avg: CharactersAvgAggregateOutputType | null
+    _sum: CharactersSumAggregateOutputType | null
     _min: CharactersMinAggregateOutputType | null
     _max: CharactersMaxAggregateOutputType | null
   }
 
+  export type CharactersAvgAggregateOutputType = {
+    characterId: number | null
+    characterPower: number | null
+    characterHealth: number | null
+    gameMoney: number | null
+  }
+
+  export type CharactersSumAggregateOutputType = {
+    characterId: number | null
+    characterPower: number | null
+    characterHealth: number | null
+    gameMoney: number | null
+  }
+
   export type CharactersMinAggregateOutputType = {
-    characterId: string | null
+    characterId: number | null
     UserId: string | null
-    title: string | null
-    content: string | null
+    characterName: string | null
+    characterPower: number | null
+    characterHealth: number | null
+    gameMoney: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
   export type CharactersMaxAggregateOutputType = {
-    characterId: string | null
+    characterId: number | null
     UserId: string | null
-    title: string | null
-    content: string | null
+    characterName: string | null
+    characterPower: number | null
+    characterHealth: number | null
+    gameMoney: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -2108,19 +2128,37 @@ export namespace Prisma {
   export type CharactersCountAggregateOutputType = {
     characterId: number
     UserId: number
-    title: number
-    content: number
+    characterName: number
+    characterPower: number
+    characterHealth: number
+    gameMoney: number
     createdAt: number
     updatedAt: number
     _all: number
   }
 
 
+  export type CharactersAvgAggregateInputType = {
+    characterId?: true
+    characterPower?: true
+    characterHealth?: true
+    gameMoney?: true
+  }
+
+  export type CharactersSumAggregateInputType = {
+    characterId?: true
+    characterPower?: true
+    characterHealth?: true
+    gameMoney?: true
+  }
+
   export type CharactersMinAggregateInputType = {
     characterId?: true
     UserId?: true
-    title?: true
-    content?: true
+    characterName?: true
+    characterPower?: true
+    characterHealth?: true
+    gameMoney?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -2128,8 +2166,10 @@ export namespace Prisma {
   export type CharactersMaxAggregateInputType = {
     characterId?: true
     UserId?: true
-    title?: true
-    content?: true
+    characterName?: true
+    characterPower?: true
+    characterHealth?: true
+    gameMoney?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -2137,8 +2177,10 @@ export namespace Prisma {
   export type CharactersCountAggregateInputType = {
     characterId?: true
     UserId?: true
-    title?: true
-    content?: true
+    characterName?: true
+    characterPower?: true
+    characterHealth?: true
+    gameMoney?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -2182,6 +2224,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: CharactersAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CharactersSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: CharactersMinAggregateInputType
@@ -2212,18 +2266,24 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: CharactersCountAggregateInputType | true
+    _avg?: CharactersAvgAggregateInputType
+    _sum?: CharactersSumAggregateInputType
     _min?: CharactersMinAggregateInputType
     _max?: CharactersMaxAggregateInputType
   }
 
   export type CharactersGroupByOutputType = {
-    characterId: string
+    characterId: number
     UserId: string
-    title: string
-    content: string
+    characterName: string
+    characterPower: number
+    characterHealth: number
+    gameMoney: number
     createdAt: Date
     updatedAt: Date
     _count: CharactersCountAggregateOutputType | null
+    _avg: CharactersAvgAggregateOutputType | null
+    _sum: CharactersSumAggregateOutputType | null
     _min: CharactersMinAggregateOutputType | null
     _max: CharactersMaxAggregateOutputType | null
   }
@@ -2245,8 +2305,10 @@ export namespace Prisma {
   export type CharactersSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     characterId?: boolean
     UserId?: boolean
-    title?: boolean
-    content?: boolean
+    characterName?: boolean
+    characterPower?: boolean
+    characterHealth?: boolean
+    gameMoney?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     User?: boolean | UsersDefaultArgs<ExtArgs>
@@ -2256,8 +2318,10 @@ export namespace Prisma {
   export type CharactersSelectScalar = {
     characterId?: boolean
     UserId?: boolean
-    title?: boolean
-    content?: boolean
+    characterName?: boolean
+    characterPower?: boolean
+    characterHealth?: boolean
+    gameMoney?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
@@ -2276,10 +2340,12 @@ export namespace Prisma {
       CharacterInventory: Prisma.$CharacterInventoryPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
-      characterId: string
+      characterId: number
       UserId: string
-      title: string
-      content: string
+      characterName: string
+      characterPower: number
+      characterHealth: number
+      gameMoney: number
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["characters"]>
@@ -2679,10 +2745,12 @@ export namespace Prisma {
    * Fields of the Characters model
    */ 
   interface CharactersFieldRefs {
-    readonly characterId: FieldRef<"Characters", 'String'>
+    readonly characterId: FieldRef<"Characters", 'Int'>
     readonly UserId: FieldRef<"Characters", 'String'>
-    readonly title: FieldRef<"Characters", 'String'>
-    readonly content: FieldRef<"Characters", 'String'>
+    readonly characterName: FieldRef<"Characters", 'String'>
+    readonly characterPower: FieldRef<"Characters", 'Int'>
+    readonly characterHealth: FieldRef<"Characters", 'Int'>
+    readonly gameMoney: FieldRef<"Characters", 'Int'>
     readonly createdAt: FieldRef<"Characters", 'DateTime'>
     readonly updatedAt: FieldRef<"Characters", 'DateTime'>
   }
@@ -3019,18 +3087,28 @@ export namespace Prisma {
 
   export type AggregateCharacterInventory = {
     _count: CharacterInventoryCountAggregateOutputType | null
+    _avg: CharacterInventoryAvgAggregateOutputType | null
+    _sum: CharacterInventorySumAggregateOutputType | null
     _min: CharacterInventoryMinAggregateOutputType | null
     _max: CharacterInventoryMaxAggregateOutputType | null
   }
 
+  export type CharacterInventoryAvgAggregateOutputType = {
+    CharacterId: number | null
+  }
+
+  export type CharacterInventorySumAggregateOutputType = {
+    CharacterId: number | null
+  }
+
   export type CharacterInventoryMinAggregateOutputType = {
     characterInventoryId: string | null
-    CharacterId: string | null
+    CharacterId: number | null
   }
 
   export type CharacterInventoryMaxAggregateOutputType = {
     characterInventoryId: string | null
-    CharacterId: string | null
+    CharacterId: number | null
   }
 
   export type CharacterInventoryCountAggregateOutputType = {
@@ -3039,6 +3117,14 @@ export namespace Prisma {
     _all: number
   }
 
+
+  export type CharacterInventoryAvgAggregateInputType = {
+    CharacterId?: true
+  }
+
+  export type CharacterInventorySumAggregateInputType = {
+    CharacterId?: true
+  }
 
   export type CharacterInventoryMinAggregateInputType = {
     characterInventoryId?: true
@@ -3094,6 +3180,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: CharacterInventoryAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CharacterInventorySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: CharacterInventoryMinAggregateInputType
@@ -3124,14 +3222,18 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: CharacterInventoryCountAggregateInputType | true
+    _avg?: CharacterInventoryAvgAggregateInputType
+    _sum?: CharacterInventorySumAggregateInputType
     _min?: CharacterInventoryMinAggregateInputType
     _max?: CharacterInventoryMaxAggregateInputType
   }
 
   export type CharacterInventoryGroupByOutputType = {
     characterInventoryId: string
-    CharacterId: string
+    CharacterId: number
     _count: CharacterInventoryCountAggregateOutputType | null
+    _avg: CharacterInventoryAvgAggregateOutputType | null
+    _sum: CharacterInventorySumAggregateOutputType | null
     _min: CharacterInventoryMinAggregateOutputType | null
     _max: CharacterInventoryMaxAggregateOutputType | null
   }
@@ -3174,7 +3276,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       characterInventoryId: string
-      CharacterId: string
+      CharacterId: number
     }, ExtArgs["result"]["characterInventory"]>
     composites: {}
   }
@@ -3571,7 +3673,7 @@ export namespace Prisma {
    */ 
   interface CharacterInventoryFieldRefs {
     readonly characterInventoryId: FieldRef<"CharacterInventory", 'String'>
-    readonly CharacterId: FieldRef<"CharacterInventory", 'String'>
+    readonly CharacterId: FieldRef<"CharacterInventory", 'Int'>
   }
     
 
@@ -3898,19 +4000,21 @@ export namespace Prisma {
   }
 
   export type ItemsAvgAggregateOutputType = {
+    itemCode: number | null
     itemHealth: number | null
     itemPower: number | null
     itemPrice: number | null
   }
 
   export type ItemsSumAggregateOutputType = {
+    itemCode: number | null
     itemHealth: number | null
     itemPower: number | null
     itemPrice: number | null
   }
 
   export type ItemsMinAggregateOutputType = {
-    itemCode: string | null
+    itemCode: number | null
     itemName: string | null
     itemHealth: number | null
     itemPower: number | null
@@ -3918,7 +4022,7 @@ export namespace Prisma {
   }
 
   export type ItemsMaxAggregateOutputType = {
-    itemCode: string | null
+    itemCode: number | null
     itemName: string | null
     itemHealth: number | null
     itemPower: number | null
@@ -3936,12 +4040,14 @@ export namespace Prisma {
 
 
   export type ItemsAvgAggregateInputType = {
+    itemCode?: true
     itemHealth?: true
     itemPower?: true
     itemPrice?: true
   }
 
   export type ItemsSumAggregateInputType = {
+    itemCode?: true
     itemHealth?: true
     itemPower?: true
     itemPrice?: true
@@ -4059,7 +4165,7 @@ export namespace Prisma {
   }
 
   export type ItemsGroupByOutputType = {
-    itemCode: string
+    itemCode: number
     itemName: string
     itemHealth: number
     itemPower: number
@@ -4107,7 +4213,7 @@ export namespace Prisma {
     name: "Items"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
-      itemCode: string
+      itemCode: number
       itemName: string
       itemHealth: number
       itemPower: number
@@ -4506,7 +4612,7 @@ export namespace Prisma {
    * Fields of the Items model
    */ 
   interface ItemsFieldRefs {
-    readonly itemCode: FieldRef<"Items", 'String'>
+    readonly itemCode: FieldRef<"Items", 'Int'>
     readonly itemName: FieldRef<"Items", 'String'>
     readonly itemHealth: FieldRef<"Items", 'Int'>
     readonly itemPower: FieldRef<"Items", 'Int'>
@@ -4812,8 +4918,10 @@ export namespace Prisma {
   export const CharactersScalarFieldEnum: {
     characterId: 'characterId',
     UserId: 'UserId',
-    title: 'title',
-    content: 'content',
+    characterName: 'characterName',
+    characterPower: 'characterPower',
+    characterHealth: 'characterHealth',
+    gameMoney: 'gameMoney',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -4943,10 +5051,12 @@ export namespace Prisma {
     AND?: CharactersWhereInput | CharactersWhereInput[]
     OR?: CharactersWhereInput[]
     NOT?: CharactersWhereInput | CharactersWhereInput[]
-    characterId?: StringFilter<"Characters"> | string
+    characterId?: IntFilter<"Characters"> | number
     UserId?: StringFilter<"Characters"> | string
-    title?: StringFilter<"Characters"> | string
-    content?: StringFilter<"Characters"> | string
+    characterName?: StringFilter<"Characters"> | string
+    characterPower?: IntFilter<"Characters"> | number
+    characterHealth?: IntFilter<"Characters"> | number
+    gameMoney?: IntFilter<"Characters"> | number
     createdAt?: DateTimeFilter<"Characters"> | Date | string
     updatedAt?: DateTimeFilter<"Characters"> | Date | string
     User?: XOR<UsersRelationFilter, UsersWhereInput>
@@ -4956,8 +5066,10 @@ export namespace Prisma {
   export type CharactersOrderByWithRelationInput = {
     characterId?: SortOrder
     UserId?: SortOrder
-    title?: SortOrder
-    content?: SortOrder
+    characterName?: SortOrder
+    characterPower?: SortOrder
+    characterHealth?: SortOrder
+    gameMoney?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     User?: UsersOrderByWithRelationInput
@@ -4965,13 +5077,15 @@ export namespace Prisma {
   }
 
   export type CharactersWhereUniqueInput = Prisma.AtLeast<{
-    characterId?: string
+    characterId?: number
     AND?: CharactersWhereInput | CharactersWhereInput[]
     OR?: CharactersWhereInput[]
     NOT?: CharactersWhereInput | CharactersWhereInput[]
     UserId?: StringFilter<"Characters"> | string
-    title?: StringFilter<"Characters"> | string
-    content?: StringFilter<"Characters"> | string
+    characterName?: StringFilter<"Characters"> | string
+    characterPower?: IntFilter<"Characters"> | number
+    characterHealth?: IntFilter<"Characters"> | number
+    gameMoney?: IntFilter<"Characters"> | number
     createdAt?: DateTimeFilter<"Characters"> | Date | string
     updatedAt?: DateTimeFilter<"Characters"> | Date | string
     User?: XOR<UsersRelationFilter, UsersWhereInput>
@@ -4981,23 +5095,29 @@ export namespace Prisma {
   export type CharactersOrderByWithAggregationInput = {
     characterId?: SortOrder
     UserId?: SortOrder
-    title?: SortOrder
-    content?: SortOrder
+    characterName?: SortOrder
+    characterPower?: SortOrder
+    characterHealth?: SortOrder
+    gameMoney?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: CharactersCountOrderByAggregateInput
+    _avg?: CharactersAvgOrderByAggregateInput
     _max?: CharactersMaxOrderByAggregateInput
     _min?: CharactersMinOrderByAggregateInput
+    _sum?: CharactersSumOrderByAggregateInput
   }
 
   export type CharactersScalarWhereWithAggregatesInput = {
     AND?: CharactersScalarWhereWithAggregatesInput | CharactersScalarWhereWithAggregatesInput[]
     OR?: CharactersScalarWhereWithAggregatesInput[]
     NOT?: CharactersScalarWhereWithAggregatesInput | CharactersScalarWhereWithAggregatesInput[]
-    characterId?: StringWithAggregatesFilter<"Characters"> | string
+    characterId?: IntWithAggregatesFilter<"Characters"> | number
     UserId?: StringWithAggregatesFilter<"Characters"> | string
-    title?: StringWithAggregatesFilter<"Characters"> | string
-    content?: StringWithAggregatesFilter<"Characters"> | string
+    characterName?: StringWithAggregatesFilter<"Characters"> | string
+    characterPower?: IntWithAggregatesFilter<"Characters"> | number
+    characterHealth?: IntWithAggregatesFilter<"Characters"> | number
+    gameMoney?: IntWithAggregatesFilter<"Characters"> | number
     createdAt?: DateTimeWithAggregatesFilter<"Characters"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Characters"> | Date | string
   }
@@ -5007,7 +5127,7 @@ export namespace Prisma {
     OR?: CharacterInventoryWhereInput[]
     NOT?: CharacterInventoryWhereInput | CharacterInventoryWhereInput[]
     characterInventoryId?: StringFilter<"CharacterInventory"> | string
-    CharacterId?: StringFilter<"CharacterInventory"> | string
+    CharacterId?: IntFilter<"CharacterInventory"> | number
     Character?: XOR<CharactersRelationFilter, CharactersWhereInput>
   }
 
@@ -5019,7 +5139,7 @@ export namespace Prisma {
 
   export type CharacterInventoryWhereUniqueInput = Prisma.AtLeast<{
     characterInventoryId?: string
-    CharacterId?: string
+    CharacterId?: number
     AND?: CharacterInventoryWhereInput | CharacterInventoryWhereInput[]
     OR?: CharacterInventoryWhereInput[]
     NOT?: CharacterInventoryWhereInput | CharacterInventoryWhereInput[]
@@ -5030,8 +5150,10 @@ export namespace Prisma {
     characterInventoryId?: SortOrder
     CharacterId?: SortOrder
     _count?: CharacterInventoryCountOrderByAggregateInput
+    _avg?: CharacterInventoryAvgOrderByAggregateInput
     _max?: CharacterInventoryMaxOrderByAggregateInput
     _min?: CharacterInventoryMinOrderByAggregateInput
+    _sum?: CharacterInventorySumOrderByAggregateInput
   }
 
   export type CharacterInventoryScalarWhereWithAggregatesInput = {
@@ -5039,14 +5161,14 @@ export namespace Prisma {
     OR?: CharacterInventoryScalarWhereWithAggregatesInput[]
     NOT?: CharacterInventoryScalarWhereWithAggregatesInput | CharacterInventoryScalarWhereWithAggregatesInput[]
     characterInventoryId?: StringWithAggregatesFilter<"CharacterInventory"> | string
-    CharacterId?: StringWithAggregatesFilter<"CharacterInventory"> | string
+    CharacterId?: IntWithAggregatesFilter<"CharacterInventory"> | number
   }
 
   export type ItemsWhereInput = {
     AND?: ItemsWhereInput | ItemsWhereInput[]
     OR?: ItemsWhereInput[]
     NOT?: ItemsWhereInput | ItemsWhereInput[]
-    itemCode?: StringFilter<"Items"> | string
+    itemCode?: IntFilter<"Items"> | number
     itemName?: StringFilter<"Items"> | string
     itemHealth?: IntFilter<"Items"> | number
     itemPower?: IntFilter<"Items"> | number
@@ -5062,7 +5184,7 @@ export namespace Prisma {
   }
 
   export type ItemsWhereUniqueInput = Prisma.AtLeast<{
-    itemCode?: string
+    itemCode?: number
     itemName?: string
     AND?: ItemsWhereInput | ItemsWhereInput[]
     OR?: ItemsWhereInput[]
@@ -5089,7 +5211,7 @@ export namespace Prisma {
     AND?: ItemsScalarWhereWithAggregatesInput | ItemsScalarWhereWithAggregatesInput[]
     OR?: ItemsScalarWhereWithAggregatesInput[]
     NOT?: ItemsScalarWhereWithAggregatesInput | ItemsScalarWhereWithAggregatesInput[]
-    itemCode?: StringWithAggregatesFilter<"Items"> | string
+    itemCode?: IntWithAggregatesFilter<"Items"> | number
     itemName?: StringWithAggregatesFilter<"Items"> | string
     itemHealth?: IntWithAggregatesFilter<"Items"> | number
     itemPower?: IntWithAggregatesFilter<"Items"> | number
@@ -5097,7 +5219,7 @@ export namespace Prisma {
   }
 
   export type UsersCreateInput = {
-    userId?: string
+    userId: string
     password: string
     name: string
     createdAt?: Date | string
@@ -5106,7 +5228,7 @@ export namespace Prisma {
   }
 
   export type UsersUncheckedCreateInput = {
-    userId?: string
+    userId: string
     password: string
     name: string
     createdAt?: Date | string
@@ -5133,7 +5255,7 @@ export namespace Prisma {
   }
 
   export type UsersCreateManyInput = {
-    userId?: string
+    userId: string
     password: string
     name: string
     createdAt?: Date | string
@@ -5157,9 +5279,10 @@ export namespace Prisma {
   }
 
   export type CharactersCreateInput = {
-    characterId?: string
-    title: string
-    content: string
+    characterName: string
+    characterPower?: number
+    characterHealth?: number
+    gameMoney?: number
     createdAt?: Date | string
     updatedAt?: Date | string
     User: UsersCreateNestedOneWithoutCharactersInput
@@ -5167,19 +5290,22 @@ export namespace Prisma {
   }
 
   export type CharactersUncheckedCreateInput = {
-    characterId?: string
+    characterId?: number
     UserId: string
-    title: string
-    content: string
+    characterName: string
+    characterPower?: number
+    characterHealth?: number
+    gameMoney?: number
     createdAt?: Date | string
     updatedAt?: Date | string
     CharacterInventory?: CharacterInventoryUncheckedCreateNestedOneWithoutCharacterInput
   }
 
   export type CharactersUpdateInput = {
-    characterId?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
+    characterName?: StringFieldUpdateOperationsInput | string
+    characterPower?: IntFieldUpdateOperationsInput | number
+    characterHealth?: IntFieldUpdateOperationsInput | number
+    gameMoney?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     User?: UsersUpdateOneRequiredWithoutCharactersNestedInput
@@ -5187,37 +5313,44 @@ export namespace Prisma {
   }
 
   export type CharactersUncheckedUpdateInput = {
-    characterId?: StringFieldUpdateOperationsInput | string
+    characterId?: IntFieldUpdateOperationsInput | number
     UserId?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
+    characterName?: StringFieldUpdateOperationsInput | string
+    characterPower?: IntFieldUpdateOperationsInput | number
+    characterHealth?: IntFieldUpdateOperationsInput | number
+    gameMoney?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     CharacterInventory?: CharacterInventoryUncheckedUpdateOneWithoutCharacterNestedInput
   }
 
   export type CharactersCreateManyInput = {
-    characterId?: string
+    characterId?: number
     UserId: string
-    title: string
-    content: string
+    characterName: string
+    characterPower?: number
+    characterHealth?: number
+    gameMoney?: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type CharactersUpdateManyMutationInput = {
-    characterId?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
+    characterName?: StringFieldUpdateOperationsInput | string
+    characterPower?: IntFieldUpdateOperationsInput | number
+    characterHealth?: IntFieldUpdateOperationsInput | number
+    gameMoney?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CharactersUncheckedUpdateManyInput = {
-    characterId?: StringFieldUpdateOperationsInput | string
+    characterId?: IntFieldUpdateOperationsInput | number
     UserId?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
+    characterName?: StringFieldUpdateOperationsInput | string
+    characterPower?: IntFieldUpdateOperationsInput | number
+    characterHealth?: IntFieldUpdateOperationsInput | number
+    gameMoney?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5229,7 +5362,7 @@ export namespace Prisma {
 
   export type CharacterInventoryUncheckedCreateInput = {
     characterInventoryId?: string
-    CharacterId: string
+    CharacterId: number
   }
 
   export type CharacterInventoryUpdateInput = {
@@ -5239,12 +5372,12 @@ export namespace Prisma {
 
   export type CharacterInventoryUncheckedUpdateInput = {
     characterInventoryId?: StringFieldUpdateOperationsInput | string
-    CharacterId?: StringFieldUpdateOperationsInput | string
+    CharacterId?: IntFieldUpdateOperationsInput | number
   }
 
   export type CharacterInventoryCreateManyInput = {
     characterInventoryId?: string
-    CharacterId: string
+    CharacterId: number
   }
 
   export type CharacterInventoryUpdateManyMutationInput = {
@@ -5253,11 +5386,10 @@ export namespace Prisma {
 
   export type CharacterInventoryUncheckedUpdateManyInput = {
     characterInventoryId?: StringFieldUpdateOperationsInput | string
-    CharacterId?: StringFieldUpdateOperationsInput | string
+    CharacterId?: IntFieldUpdateOperationsInput | number
   }
 
   export type ItemsCreateInput = {
-    itemCode?: string
     itemName: string
     itemHealth: number
     itemPower: number
@@ -5265,7 +5397,7 @@ export namespace Prisma {
   }
 
   export type ItemsUncheckedCreateInput = {
-    itemCode?: string
+    itemCode?: number
     itemName: string
     itemHealth: number
     itemPower: number
@@ -5273,7 +5405,6 @@ export namespace Prisma {
   }
 
   export type ItemsUpdateInput = {
-    itemCode?: StringFieldUpdateOperationsInput | string
     itemName?: StringFieldUpdateOperationsInput | string
     itemHealth?: IntFieldUpdateOperationsInput | number
     itemPower?: IntFieldUpdateOperationsInput | number
@@ -5281,7 +5412,7 @@ export namespace Prisma {
   }
 
   export type ItemsUncheckedUpdateInput = {
-    itemCode?: StringFieldUpdateOperationsInput | string
+    itemCode?: IntFieldUpdateOperationsInput | number
     itemName?: StringFieldUpdateOperationsInput | string
     itemHealth?: IntFieldUpdateOperationsInput | number
     itemPower?: IntFieldUpdateOperationsInput | number
@@ -5289,7 +5420,7 @@ export namespace Prisma {
   }
 
   export type ItemsCreateManyInput = {
-    itemCode?: string
+    itemCode?: number
     itemName: string
     itemHealth: number
     itemPower: number
@@ -5297,7 +5428,6 @@ export namespace Prisma {
   }
 
   export type ItemsUpdateManyMutationInput = {
-    itemCode?: StringFieldUpdateOperationsInput | string
     itemName?: StringFieldUpdateOperationsInput | string
     itemHealth?: IntFieldUpdateOperationsInput | number
     itemPower?: IntFieldUpdateOperationsInput | number
@@ -5305,7 +5435,7 @@ export namespace Prisma {
   }
 
   export type ItemsUncheckedUpdateManyInput = {
-    itemCode?: StringFieldUpdateOperationsInput | string
+    itemCode?: IntFieldUpdateOperationsInput | number
     itemName?: StringFieldUpdateOperationsInput | string
     itemHealth?: IntFieldUpdateOperationsInput | number
     itemPower?: IntFieldUpdateOperationsInput | number
@@ -5402,6 +5532,17 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
   export type UsersRelationFilter = {
     is?: UsersWhereInput
     isNot?: UsersWhereInput
@@ -5415,17 +5556,28 @@ export namespace Prisma {
   export type CharactersCountOrderByAggregateInput = {
     characterId?: SortOrder
     UserId?: SortOrder
-    title?: SortOrder
-    content?: SortOrder
+    characterName?: SortOrder
+    characterPower?: SortOrder
+    characterHealth?: SortOrder
+    gameMoney?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type CharactersAvgOrderByAggregateInput = {
+    characterId?: SortOrder
+    characterPower?: SortOrder
+    characterHealth?: SortOrder
+    gameMoney?: SortOrder
   }
 
   export type CharactersMaxOrderByAggregateInput = {
     characterId?: SortOrder
     UserId?: SortOrder
-    title?: SortOrder
-    content?: SortOrder
+    characterName?: SortOrder
+    characterPower?: SortOrder
+    characterHealth?: SortOrder
+    gameMoney?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -5433,10 +5585,35 @@ export namespace Prisma {
   export type CharactersMinOrderByAggregateInput = {
     characterId?: SortOrder
     UserId?: SortOrder
-    title?: SortOrder
-    content?: SortOrder
+    characterName?: SortOrder
+    characterPower?: SortOrder
+    characterHealth?: SortOrder
+    gameMoney?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type CharactersSumOrderByAggregateInput = {
+    characterId?: SortOrder
+    characterPower?: SortOrder
+    characterHealth?: SortOrder
+    gameMoney?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type CharactersRelationFilter = {
@@ -5446,6 +5623,10 @@ export namespace Prisma {
 
   export type CharacterInventoryCountOrderByAggregateInput = {
     characterInventoryId?: SortOrder
+    CharacterId?: SortOrder
+  }
+
+  export type CharacterInventoryAvgOrderByAggregateInput = {
     CharacterId?: SortOrder
   }
 
@@ -5459,15 +5640,8 @@ export namespace Prisma {
     CharacterId?: SortOrder
   }
 
-  export type IntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
+  export type CharacterInventorySumOrderByAggregateInput = {
+    CharacterId?: SortOrder
   }
 
   export type ItemsCountOrderByAggregateInput = {
@@ -5479,6 +5653,7 @@ export namespace Prisma {
   }
 
   export type ItemsAvgOrderByAggregateInput = {
+    itemCode?: SortOrder
     itemHealth?: SortOrder
     itemPower?: SortOrder
     itemPrice?: SortOrder
@@ -5501,25 +5676,10 @@ export namespace Prisma {
   }
 
   export type ItemsSumOrderByAggregateInput = {
+    itemCode?: SortOrder
     itemHealth?: SortOrder
     itemPower?: SortOrder
     itemPrice?: SortOrder
-  }
-
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type CharactersCreateNestedManyWithoutUserInput = {
@@ -5590,6 +5750,14 @@ export namespace Prisma {
     connect?: CharacterInventoryWhereUniqueInput
   }
 
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type UsersUpdateOneRequiredWithoutCharactersNestedInput = {
     create?: XOR<UsersCreateWithoutCharactersInput, UsersUncheckedCreateWithoutCharactersInput>
     connectOrCreate?: UsersCreateOrConnectWithoutCharactersInput
@@ -5630,14 +5798,6 @@ export namespace Prisma {
     upsert?: CharactersUpsertWithoutCharacterInventoryInput
     connect?: CharactersWhereUniqueInput
     update?: XOR<XOR<CharactersUpdateToOneWithWhereWithoutCharacterInventoryInput, CharactersUpdateWithoutCharacterInventoryInput>, CharactersUncheckedUpdateWithoutCharacterInventoryInput>
-  }
-
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -5735,18 +5895,21 @@ export namespace Prisma {
   }
 
   export type CharactersCreateWithoutUserInput = {
-    characterId?: string
-    title: string
-    content: string
+    characterName: string
+    characterPower?: number
+    characterHealth?: number
+    gameMoney?: number
     createdAt?: Date | string
     updatedAt?: Date | string
     CharacterInventory?: CharacterInventoryCreateNestedOneWithoutCharacterInput
   }
 
   export type CharactersUncheckedCreateWithoutUserInput = {
-    characterId?: string
-    title: string
-    content: string
+    characterId?: number
+    characterName: string
+    characterPower?: number
+    characterHealth?: number
+    gameMoney?: number
     createdAt?: Date | string
     updatedAt?: Date | string
     CharacterInventory?: CharacterInventoryUncheckedCreateNestedOneWithoutCharacterInput
@@ -5782,16 +5945,18 @@ export namespace Prisma {
     AND?: CharactersScalarWhereInput | CharactersScalarWhereInput[]
     OR?: CharactersScalarWhereInput[]
     NOT?: CharactersScalarWhereInput | CharactersScalarWhereInput[]
-    characterId?: StringFilter<"Characters"> | string
+    characterId?: IntFilter<"Characters"> | number
     UserId?: StringFilter<"Characters"> | string
-    title?: StringFilter<"Characters"> | string
-    content?: StringFilter<"Characters"> | string
+    characterName?: StringFilter<"Characters"> | string
+    characterPower?: IntFilter<"Characters"> | number
+    characterHealth?: IntFilter<"Characters"> | number
+    gameMoney?: IntFilter<"Characters"> | number
     createdAt?: DateTimeFilter<"Characters"> | Date | string
     updatedAt?: DateTimeFilter<"Characters"> | Date | string
   }
 
   export type UsersCreateWithoutCharactersInput = {
-    userId?: string
+    userId: string
     password: string
     name: string
     createdAt?: Date | string
@@ -5799,7 +5964,7 @@ export namespace Prisma {
   }
 
   export type UsersUncheckedCreateWithoutCharactersInput = {
-    userId?: string
+    userId: string
     password: string
     name: string
     createdAt?: Date | string
@@ -5871,19 +6036,22 @@ export namespace Prisma {
   }
 
   export type CharactersCreateWithoutCharacterInventoryInput = {
-    characterId?: string
-    title: string
-    content: string
+    characterName: string
+    characterPower?: number
+    characterHealth?: number
+    gameMoney?: number
     createdAt?: Date | string
     updatedAt?: Date | string
     User: UsersCreateNestedOneWithoutCharactersInput
   }
 
   export type CharactersUncheckedCreateWithoutCharacterInventoryInput = {
-    characterId?: string
+    characterId?: number
     UserId: string
-    title: string
-    content: string
+    characterName: string
+    characterPower?: number
+    characterHealth?: number
+    gameMoney?: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5905,53 +6073,63 @@ export namespace Prisma {
   }
 
   export type CharactersUpdateWithoutCharacterInventoryInput = {
-    characterId?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
+    characterName?: StringFieldUpdateOperationsInput | string
+    characterPower?: IntFieldUpdateOperationsInput | number
+    characterHealth?: IntFieldUpdateOperationsInput | number
+    gameMoney?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     User?: UsersUpdateOneRequiredWithoutCharactersNestedInput
   }
 
   export type CharactersUncheckedUpdateWithoutCharacterInventoryInput = {
-    characterId?: StringFieldUpdateOperationsInput | string
+    characterId?: IntFieldUpdateOperationsInput | number
     UserId?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
+    characterName?: StringFieldUpdateOperationsInput | string
+    characterPower?: IntFieldUpdateOperationsInput | number
+    characterHealth?: IntFieldUpdateOperationsInput | number
+    gameMoney?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CharactersCreateManyUserInput = {
-    characterId?: string
-    title: string
-    content: string
+    characterId?: number
+    characterName: string
+    characterPower?: number
+    characterHealth?: number
+    gameMoney?: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type CharactersUpdateWithoutUserInput = {
-    characterId?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
+    characterName?: StringFieldUpdateOperationsInput | string
+    characterPower?: IntFieldUpdateOperationsInput | number
+    characterHealth?: IntFieldUpdateOperationsInput | number
+    gameMoney?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     CharacterInventory?: CharacterInventoryUpdateOneWithoutCharacterNestedInput
   }
 
   export type CharactersUncheckedUpdateWithoutUserInput = {
-    characterId?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
+    characterId?: IntFieldUpdateOperationsInput | number
+    characterName?: StringFieldUpdateOperationsInput | string
+    characterPower?: IntFieldUpdateOperationsInput | number
+    characterHealth?: IntFieldUpdateOperationsInput | number
+    gameMoney?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     CharacterInventory?: CharacterInventoryUncheckedUpdateOneWithoutCharacterNestedInput
   }
 
   export type CharactersUncheckedUpdateManyWithoutUserInput = {
-    characterId?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
+    characterId?: IntFieldUpdateOperationsInput | number
+    characterName?: StringFieldUpdateOperationsInput | string
+    characterPower?: IntFieldUpdateOperationsInput | number
+    characterHealth?: IntFieldUpdateOperationsInput | number
+    gameMoney?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

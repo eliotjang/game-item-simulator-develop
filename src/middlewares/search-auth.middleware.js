@@ -9,25 +9,24 @@ export default async (req, res, next) => {
   try {
     // Authorization 헤더로 JWT 전달
     const authorization = req.header.authorization;
-    if (!authorization) throw new Error('토큰이 존재하지 않습니다.');
+    if (authorization) {
+      const [tokenType, token] = authorization.split(' ');
 
-    const [tokenType, token] = authorization.split(' ');
+      if (tokenType !== 'Bearer') throw new Error('토큰 타입이 일치하지 않습니다.');
 
-    if (tokenType !== 'Bearer') throw new Error('토큰 타입이 일치하지 않습니다.');
+      const decodedToken = jwt.verify(token, process.env.CUSTOM_SECRET_KEY);
+      const userId = decodedToken.userId;
 
-    const decodedToken = jwt.verify(token, process.env.CUSTOM_SECRET_KEY);
-    const userId = decodedToken.userId;
+      const user = await userPrisma.users.findFirst({
+        where: { userId },
+      });
+      if (!user) {
+        throw new Error('토큰 사용자가 존재하지 않습니다.');
+      }
 
-    const user = await userPrisma.users.findFirst({
-      where: { userId },
-    });
-    if (!user) {
-      throw new Error('토큰 사용자가 존재하지 않습니다.');
+      // 인증 성공 시, 인증 사용자 정보를 저장
+      req.user = user;
     }
-
-    // 인증 성공 시, 인증 사용자 정보를 저장
-    req.user = user;
-
     next();
   } catch (error) {
     switch (error.name) {
