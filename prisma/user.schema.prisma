@@ -47,13 +47,3 @@ model CharacterInventory {
 
   @@map("character_inventory")
 }
-
-model Items {
-  itemCode Int @id @default(autoincrement()) @map("item_code")
-  itemName String @unique @map("item_name")
-  itemHealth Int @map("item_health")
-  itemPower Int @map("item_power")
-  itemPrice Int @map("item_price")
-
-  @@map("Items")
-}
