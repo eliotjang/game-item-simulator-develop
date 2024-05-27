@@ -56,7 +56,7 @@ router.get('/character-items/:characterId', async (req, res, next) => {
   }
 });
 
-// 아이템 장착 API
+// 아이템 장착 API (JWT 인증)
 router.post('/character-items/:characterId', authMiddleware, async (req, res, next) => {
   try {
     // Path parameter로 캐릭터 ID 전달
@@ -158,7 +158,7 @@ router.post('/character-items/:characterId', authMiddleware, async (req, res, ne
   }
 });
 
-// 아이템 탈착 API
+// 아이템 탈착 API (JWT 인증)
 router.delete('/character-items/:characterId', authMiddleware, async (req, res, next) => {
   try {
     // Path parameter로 캐릭터 ID 전달
