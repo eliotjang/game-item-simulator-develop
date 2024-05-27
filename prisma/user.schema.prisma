@@ -24,14 +24,15 @@ model Characters {
   characterId Int @id @default(autoincrement()) @map("character_id")
   UserId String @map("user_id")
   characterName String @map("name")
-  characterPower Int @default(100) @map("character_power")
   characterHealth Int @default(500) @map("character_health")
+  characterPower Int @default(100) @map("character_power")
   gameMoney Int @default(10000) @map("game_money")
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
   User Users @relation(fields: [UserId], references: [userId], onDelete: Cascade)
   CharacterInventory CharacterInventory[]
+  CharacterItems CharacterItems[]
 
   @@map("characters")
 }
@@ -41,11 +42,18 @@ model CharacterInventory {
   CharacterId Int @map("character_id")
   itemCode Int @map("item_code")
   itemCount Int @map("item_count")
-  //Items Items[]
-  //Items String
-    // Json.stringify(), Json.parse() 그리고 Items에 인벤토리 외래키를 추가해야하는 소요
     
   Character Characters @relation(fields: [CharacterId], references: [characterId], onDelete: Cascade)
 
   @@map("character_inventory")
+}
+
+model CharacterItems {
+  characterItemId Int @id @default(autoincrement()) @map("character_item_id")
+  CharacterId Int @map("character_id")
+  itemCode Int @map("item_code")
+
+  Character Characters @relation(fields: [CharacterId], references: [characterId], onDelete: Cascade)
+
+  @@map("character_items")
 }

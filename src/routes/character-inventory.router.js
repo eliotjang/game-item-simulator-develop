@@ -8,7 +8,9 @@ const router = express.Router();
 // 아이템 구입 API (JWT 인증)
 router.post('/character-inventory/:characterId', authMiddleware, async (req, res, next) => {
   try {
+    // Path parameter로 캐릭터 ID 전달
     const { characterId } = req.params;
+    // Request body로 아이템 코드, 아이템 수량 전달
     const targetItems = req.body;
 
     // 캐릭터 조회
@@ -29,9 +31,9 @@ router.post('/character-inventory/:characterId', authMiddleware, async (req, res
           itemCode: targetItems[i].itemCode,
         },
       });
-      // 존재하지 않은 아이템 구매 시도 시, 404 Not Found 상태코드 및 에러메시지 반환
+      // 존재하지 않은 아이템 구매 시도 시, 400 Bad Request 상태코드 및 에러메시지 반환
       if (!isExistItem) {
-        return res.status(404).json({ errorMessage: '유효하지 않은 아이템의 구입입니다.' });
+        return res.status(400).json({ errorMessage: '유효하지 않은 아이템의 구입입니다.' });
       }
       totalPurchasePrice += isExistItem.itemPrice * targetItems[i].itemCount;
     }
@@ -98,7 +100,9 @@ router.post('/character-inventory/:characterId', authMiddleware, async (req, res
 // 아이템 판매 API (JWT 인증)
 router.delete('/character-inventory/:characterId', authMiddleware, async (req, res, next) => {
   try {
+    // Path parameter로 캐릭터 ID 전달
     const { characterId } = req.params;
+    // Request body로 아이템 코드, 아이템 수량 전달
     const targetItems = req.body;
 
     // 캐릭터 조회
@@ -127,13 +131,13 @@ router.delete('/character-inventory/:characterId', authMiddleware, async (req, r
       });
       // 원가의 60% 가격으로 정산하여 총 판매 금액 확인
       totalSellPrice += isExistItem.itemPrice * 0.6 * targetItems[i].itemCount;
-      // 존재하지 않은 아이템 판매 시도 시, 404 Not Found 상태코드 및 에러 메시지 반환
+      // 존재하지 않은 아이템 판매 시도 시, 400 Bad Request 상태코드 및 에러 메시지 반환
       if (!isExistItem) {
-        return res.status(404).json({ errorMessage: '유효하지 않은 아이템의 판매입니다.' });
+        return res.status(400).json({ errorMessage: '유효하지 않은 아이템의 판매입니다.' });
       }
-      // 인벤토리 내 존재하지 않는 아이템 판매 시도 시, 404 Not Found 상태코드 및 에러 메시지 반환
+      // 인벤토리 내 존재하지 않는 아이템 판매 시도 시, 400 Bad Request 상태코드 및 에러 메시지 반환
       if (!isExistInventory) {
-        return res.status(404).json({ errorMessage: '인벤토리 내 존재하지 않은 아이템의 판매입니다.' });
+        return res.status(400).json({ errorMessage: '인벤토리 내 존재하지 않은 아이템의 판매입니다.' });
       }
       // 보유한 아이템보다 초과된 개수의 아이템 판매 시도 시, 400 Bad Request 상태코드 및 에러 메시지 반환
       if (isExistInventory.itemCount < targetItems[i].itemCount) {
@@ -189,6 +193,7 @@ router.delete('/character-inventory/:characterId', authMiddleware, async (req, r
 // 캐릭터가 보유한 인벤토리 내 아이템 목록 조회 API (JWT 인증)
 router.get('/character-inventory/:characterId', authMiddleware, async (req, res, next) => {
   try {
+    // Path parameter로 캐릭터 ID 전달
     const { characterId } = req.params;
 
     // 캐릭터 조회

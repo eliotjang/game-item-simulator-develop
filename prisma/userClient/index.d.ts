@@ -28,6 +28,11 @@ export type Characters = $Result.DefaultSelection<Prisma.$CharactersPayload>
  * 
  */
 export type CharacterInventory = $Result.DefaultSelection<Prisma.$CharacterInventoryPayload>
+/**
+ * Model CharacterItems
+ * 
+ */
+export type CharacterItems = $Result.DefaultSelection<Prisma.$CharacterItemsPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -180,6 +185,16 @@ export class PrismaClient<
     * ```
     */
   get characterInventory(): Prisma.CharacterInventoryDelegate<ExtArgs>;
+
+  /**
+   * `prisma.characterItems`: Exposes CRUD operations for the **CharacterItems** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more CharacterItems
+    * const characterItems = await prisma.characterItems.findMany()
+    * ```
+    */
+  get characterItems(): Prisma.CharacterItemsDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -659,7 +674,8 @@ export namespace Prisma {
   export const ModelName: {
     Users: 'Users',
     Characters: 'Characters',
-    CharacterInventory: 'CharacterInventory'
+    CharacterInventory: 'CharacterInventory',
+    CharacterItems: 'CharacterItems'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -676,7 +692,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'users' | 'characters' | 'characterInventory'
+      modelProps: 'users' | 'characters' | 'characterInventory' | 'characterItems'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
@@ -878,6 +894,72 @@ export namespace Prisma {
           }
         }
       }
+      CharacterItems: {
+        payload: Prisma.$CharacterItemsPayload<ExtArgs>
+        fields: Prisma.CharacterItemsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CharacterItemsFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CharacterItemsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CharacterItemsFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CharacterItemsPayload>
+          }
+          findFirst: {
+            args: Prisma.CharacterItemsFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CharacterItemsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CharacterItemsFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CharacterItemsPayload>
+          }
+          findMany: {
+            args: Prisma.CharacterItemsFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CharacterItemsPayload>[]
+          }
+          create: {
+            args: Prisma.CharacterItemsCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CharacterItemsPayload>
+          }
+          createMany: {
+            args: Prisma.CharacterItemsCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.CharacterItemsDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CharacterItemsPayload>
+          }
+          update: {
+            args: Prisma.CharacterItemsUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CharacterItemsPayload>
+          }
+          deleteMany: {
+            args: Prisma.CharacterItemsDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CharacterItemsUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.CharacterItemsUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CharacterItemsPayload>
+          }
+          aggregate: {
+            args: Prisma.CharacterItemsAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateCharacterItems>
+          }
+          groupBy: {
+            args: Prisma.CharacterItemsGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<CharacterItemsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CharacterItemsCountArgs<ExtArgs>,
+            result: $Utils.Optional<CharacterItemsCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1070,10 +1152,12 @@ export namespace Prisma {
 
   export type CharactersCountOutputType = {
     CharacterInventory: number
+    CharacterItems: number
   }
 
   export type CharactersCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     CharacterInventory?: boolean | CharactersCountOutputTypeCountCharacterInventoryArgs
+    CharacterItems?: boolean | CharactersCountOutputTypeCountCharacterItemsArgs
   }
 
   // Custom InputTypes
@@ -1092,6 +1176,13 @@ export namespace Prisma {
    */
   export type CharactersCountOutputTypeCountCharacterInventoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: CharacterInventoryWhereInput
+  }
+
+  /**
+   * CharactersCountOutputType without action
+   */
+  export type CharactersCountOutputTypeCountCharacterItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CharacterItemsWhereInput
   }
 
 
@@ -2262,6 +2353,7 @@ export namespace Prisma {
     updatedAt?: boolean
     User?: boolean | UsersDefaultArgs<ExtArgs>
     CharacterInventory?: boolean | Characters$CharacterInventoryArgs<ExtArgs>
+    CharacterItems?: boolean | Characters$CharacterItemsArgs<ExtArgs>
     _count?: boolean | CharactersCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["characters"]>
 
@@ -2280,6 +2372,7 @@ export namespace Prisma {
   export type CharactersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     User?: boolean | UsersDefaultArgs<ExtArgs>
     CharacterInventory?: boolean | Characters$CharacterInventoryArgs<ExtArgs>
+    CharacterItems?: boolean | Characters$CharacterItemsArgs<ExtArgs>
     _count?: boolean | CharactersCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -2289,6 +2382,7 @@ export namespace Prisma {
     objects: {
       User: Prisma.$UsersPayload<ExtArgs>
       CharacterInventory: Prisma.$CharacterInventoryPayload<ExtArgs>[]
+      CharacterItems: Prisma.$CharacterItemsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       characterId: number
@@ -2668,6 +2762,8 @@ export namespace Prisma {
 
     CharacterInventory<T extends Characters$CharacterInventoryArgs<ExtArgs> = {}>(args?: Subset<T, Characters$CharacterInventoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CharacterInventoryPayload<ExtArgs>, T, 'findMany'> | Null>;
 
+    CharacterItems<T extends Characters$CharacterItemsArgs<ExtArgs> = {}>(args?: Subset<T, Characters$CharacterItemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CharacterItemsPayload<ExtArgs>, T, 'findMany'> | Null>;
+
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3020,6 +3116,26 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: CharacterInventoryScalarFieldEnum | CharacterInventoryScalarFieldEnum[]
+  }
+
+  /**
+   * Characters.CharacterItems
+   */
+  export type Characters$CharacterItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CharacterItems
+     */
+    select?: CharacterItemsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterItemsInclude<ExtArgs> | null
+    where?: CharacterItemsWhereInput
+    orderBy?: CharacterItemsOrderByWithRelationInput | CharacterItemsOrderByWithRelationInput[]
+    cursor?: CharacterItemsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CharacterItemsScalarFieldEnum | CharacterItemsScalarFieldEnum[]
   }
 
   /**
@@ -3978,6 +4094,931 @@ export namespace Prisma {
 
 
   /**
+   * Model CharacterItems
+   */
+
+  export type AggregateCharacterItems = {
+    _count: CharacterItemsCountAggregateOutputType | null
+    _avg: CharacterItemsAvgAggregateOutputType | null
+    _sum: CharacterItemsSumAggregateOutputType | null
+    _min: CharacterItemsMinAggregateOutputType | null
+    _max: CharacterItemsMaxAggregateOutputType | null
+  }
+
+  export type CharacterItemsAvgAggregateOutputType = {
+    characterItemId: number | null
+    CharacterId: number | null
+    itemCode: number | null
+  }
+
+  export type CharacterItemsSumAggregateOutputType = {
+    characterItemId: number | null
+    CharacterId: number | null
+    itemCode: number | null
+  }
+
+  export type CharacterItemsMinAggregateOutputType = {
+    characterItemId: number | null
+    CharacterId: number | null
+    itemCode: number | null
+  }
+
+  export type CharacterItemsMaxAggregateOutputType = {
+    characterItemId: number | null
+    CharacterId: number | null
+    itemCode: number | null
+  }
+
+  export type CharacterItemsCountAggregateOutputType = {
+    characterItemId: number
+    CharacterId: number
+    itemCode: number
+    _all: number
+  }
+
+
+  export type CharacterItemsAvgAggregateInputType = {
+    characterItemId?: true
+    CharacterId?: true
+    itemCode?: true
+  }
+
+  export type CharacterItemsSumAggregateInputType = {
+    characterItemId?: true
+    CharacterId?: true
+    itemCode?: true
+  }
+
+  export type CharacterItemsMinAggregateInputType = {
+    characterItemId?: true
+    CharacterId?: true
+    itemCode?: true
+  }
+
+  export type CharacterItemsMaxAggregateInputType = {
+    characterItemId?: true
+    CharacterId?: true
+    itemCode?: true
+  }
+
+  export type CharacterItemsCountAggregateInputType = {
+    characterItemId?: true
+    CharacterId?: true
+    itemCode?: true
+    _all?: true
+  }
+
+  export type CharacterItemsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CharacterItems to aggregate.
+     */
+    where?: CharacterItemsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CharacterItems to fetch.
+     */
+    orderBy?: CharacterItemsOrderByWithRelationInput | CharacterItemsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CharacterItemsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CharacterItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CharacterItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned CharacterItems
+    **/
+    _count?: true | CharacterItemsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CharacterItemsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CharacterItemsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CharacterItemsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CharacterItemsMaxAggregateInputType
+  }
+
+  export type GetCharacterItemsAggregateType<T extends CharacterItemsAggregateArgs> = {
+        [P in keyof T & keyof AggregateCharacterItems]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCharacterItems[P]>
+      : GetScalarType<T[P], AggregateCharacterItems[P]>
+  }
+
+
+
+
+  export type CharacterItemsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CharacterItemsWhereInput
+    orderBy?: CharacterItemsOrderByWithAggregationInput | CharacterItemsOrderByWithAggregationInput[]
+    by: CharacterItemsScalarFieldEnum[] | CharacterItemsScalarFieldEnum
+    having?: CharacterItemsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CharacterItemsCountAggregateInputType | true
+    _avg?: CharacterItemsAvgAggregateInputType
+    _sum?: CharacterItemsSumAggregateInputType
+    _min?: CharacterItemsMinAggregateInputType
+    _max?: CharacterItemsMaxAggregateInputType
+  }
+
+  export type CharacterItemsGroupByOutputType = {
+    characterItemId: number
+    CharacterId: number
+    itemCode: number
+    _count: CharacterItemsCountAggregateOutputType | null
+    _avg: CharacterItemsAvgAggregateOutputType | null
+    _sum: CharacterItemsSumAggregateOutputType | null
+    _min: CharacterItemsMinAggregateOutputType | null
+    _max: CharacterItemsMaxAggregateOutputType | null
+  }
+
+  type GetCharacterItemsGroupByPayload<T extends CharacterItemsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CharacterItemsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CharacterItemsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CharacterItemsGroupByOutputType[P]>
+            : GetScalarType<T[P], CharacterItemsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CharacterItemsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    characterItemId?: boolean
+    CharacterId?: boolean
+    itemCode?: boolean
+    Character?: boolean | CharactersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["characterItems"]>
+
+  export type CharacterItemsSelectScalar = {
+    characterItemId?: boolean
+    CharacterId?: boolean
+    itemCode?: boolean
+  }
+
+
+  export type CharacterItemsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Character?: boolean | CharactersDefaultArgs<ExtArgs>
+  }
+
+
+  export type $CharacterItemsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "CharacterItems"
+    objects: {
+      Character: Prisma.$CharactersPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      characterItemId: number
+      CharacterId: number
+      itemCode: number
+    }, ExtArgs["result"]["characterItems"]>
+    composites: {}
+  }
+
+
+  type CharacterItemsGetPayload<S extends boolean | null | undefined | CharacterItemsDefaultArgs> = $Result.GetResult<Prisma.$CharacterItemsPayload, S>
+
+  type CharacterItemsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<CharacterItemsFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: CharacterItemsCountAggregateInputType | true
+    }
+
+  export interface CharacterItemsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CharacterItems'], meta: { name: 'CharacterItems' } }
+    /**
+     * Find zero or one CharacterItems that matches the filter.
+     * @param {CharacterItemsFindUniqueArgs} args - Arguments to find a CharacterItems
+     * @example
+     * // Get one CharacterItems
+     * const characterItems = await prisma.characterItems.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends CharacterItemsFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, CharacterItemsFindUniqueArgs<ExtArgs>>
+    ): Prisma__CharacterItemsClient<$Result.GetResult<Prisma.$CharacterItemsPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one CharacterItems that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {CharacterItemsFindUniqueOrThrowArgs} args - Arguments to find a CharacterItems
+     * @example
+     * // Get one CharacterItems
+     * const characterItems = await prisma.characterItems.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends CharacterItemsFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, CharacterItemsFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__CharacterItemsClient<$Result.GetResult<Prisma.$CharacterItemsPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first CharacterItems that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CharacterItemsFindFirstArgs} args - Arguments to find a CharacterItems
+     * @example
+     * // Get one CharacterItems
+     * const characterItems = await prisma.characterItems.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends CharacterItemsFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, CharacterItemsFindFirstArgs<ExtArgs>>
+    ): Prisma__CharacterItemsClient<$Result.GetResult<Prisma.$CharacterItemsPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first CharacterItems that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CharacterItemsFindFirstOrThrowArgs} args - Arguments to find a CharacterItems
+     * @example
+     * // Get one CharacterItems
+     * const characterItems = await prisma.characterItems.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends CharacterItemsFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, CharacterItemsFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__CharacterItemsClient<$Result.GetResult<Prisma.$CharacterItemsPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more CharacterItems that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CharacterItemsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all CharacterItems
+     * const characterItems = await prisma.characterItems.findMany()
+     * 
+     * // Get first 10 CharacterItems
+     * const characterItems = await prisma.characterItems.findMany({ take: 10 })
+     * 
+     * // Only select the `characterItemId`
+     * const characterItemsWithCharacterItemIdOnly = await prisma.characterItems.findMany({ select: { characterItemId: true } })
+     * 
+    **/
+    findMany<T extends CharacterItemsFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, CharacterItemsFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CharacterItemsPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a CharacterItems.
+     * @param {CharacterItemsCreateArgs} args - Arguments to create a CharacterItems.
+     * @example
+     * // Create one CharacterItems
+     * const CharacterItems = await prisma.characterItems.create({
+     *   data: {
+     *     // ... data to create a CharacterItems
+     *   }
+     * })
+     * 
+    **/
+    create<T extends CharacterItemsCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, CharacterItemsCreateArgs<ExtArgs>>
+    ): Prisma__CharacterItemsClient<$Result.GetResult<Prisma.$CharacterItemsPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many CharacterItems.
+     * @param {CharacterItemsCreateManyArgs} args - Arguments to create many CharacterItems.
+     * @example
+     * // Create many CharacterItems
+     * const characterItems = await prisma.characterItems.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+    **/
+    createMany<T extends CharacterItemsCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, CharacterItemsCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a CharacterItems.
+     * @param {CharacterItemsDeleteArgs} args - Arguments to delete one CharacterItems.
+     * @example
+     * // Delete one CharacterItems
+     * const CharacterItems = await prisma.characterItems.delete({
+     *   where: {
+     *     // ... filter to delete one CharacterItems
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends CharacterItemsDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, CharacterItemsDeleteArgs<ExtArgs>>
+    ): Prisma__CharacterItemsClient<$Result.GetResult<Prisma.$CharacterItemsPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one CharacterItems.
+     * @param {CharacterItemsUpdateArgs} args - Arguments to update one CharacterItems.
+     * @example
+     * // Update one CharacterItems
+     * const characterItems = await prisma.characterItems.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends CharacterItemsUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, CharacterItemsUpdateArgs<ExtArgs>>
+    ): Prisma__CharacterItemsClient<$Result.GetResult<Prisma.$CharacterItemsPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more CharacterItems.
+     * @param {CharacterItemsDeleteManyArgs} args - Arguments to filter CharacterItems to delete.
+     * @example
+     * // Delete a few CharacterItems
+     * const { count } = await prisma.characterItems.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends CharacterItemsDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, CharacterItemsDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CharacterItems.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CharacterItemsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many CharacterItems
+     * const characterItems = await prisma.characterItems.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends CharacterItemsUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, CharacterItemsUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one CharacterItems.
+     * @param {CharacterItemsUpsertArgs} args - Arguments to update or create a CharacterItems.
+     * @example
+     * // Update or create a CharacterItems
+     * const characterItems = await prisma.characterItems.upsert({
+     *   create: {
+     *     // ... data to create a CharacterItems
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the CharacterItems we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends CharacterItemsUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, CharacterItemsUpsertArgs<ExtArgs>>
+    ): Prisma__CharacterItemsClient<$Result.GetResult<Prisma.$CharacterItemsPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of CharacterItems.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CharacterItemsCountArgs} args - Arguments to filter CharacterItems to count.
+     * @example
+     * // Count the number of CharacterItems
+     * const count = await prisma.characterItems.count({
+     *   where: {
+     *     // ... the filter for the CharacterItems we want to count
+     *   }
+     * })
+    **/
+    count<T extends CharacterItemsCountArgs>(
+      args?: Subset<T, CharacterItemsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CharacterItemsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a CharacterItems.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CharacterItemsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CharacterItemsAggregateArgs>(args: Subset<T, CharacterItemsAggregateArgs>): Prisma.PrismaPromise<GetCharacterItemsAggregateType<T>>
+
+    /**
+     * Group by CharacterItems.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CharacterItemsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CharacterItemsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CharacterItemsGroupByArgs['orderBy'] }
+        : { orderBy?: CharacterItemsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CharacterItemsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCharacterItemsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the CharacterItems model
+   */
+  readonly fields: CharacterItemsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for CharacterItems.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CharacterItemsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    Character<T extends CharactersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CharactersDefaultArgs<ExtArgs>>): Prisma__CharactersClient<$Result.GetResult<Prisma.$CharactersPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the CharacterItems model
+   */ 
+  interface CharacterItemsFieldRefs {
+    readonly characterItemId: FieldRef<"CharacterItems", 'Int'>
+    readonly CharacterId: FieldRef<"CharacterItems", 'Int'>
+    readonly itemCode: FieldRef<"CharacterItems", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * CharacterItems findUnique
+   */
+  export type CharacterItemsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CharacterItems
+     */
+    select?: CharacterItemsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterItemsInclude<ExtArgs> | null
+    /**
+     * Filter, which CharacterItems to fetch.
+     */
+    where: CharacterItemsWhereUniqueInput
+  }
+
+  /**
+   * CharacterItems findUniqueOrThrow
+   */
+  export type CharacterItemsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CharacterItems
+     */
+    select?: CharacterItemsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterItemsInclude<ExtArgs> | null
+    /**
+     * Filter, which CharacterItems to fetch.
+     */
+    where: CharacterItemsWhereUniqueInput
+  }
+
+  /**
+   * CharacterItems findFirst
+   */
+  export type CharacterItemsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CharacterItems
+     */
+    select?: CharacterItemsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterItemsInclude<ExtArgs> | null
+    /**
+     * Filter, which CharacterItems to fetch.
+     */
+    where?: CharacterItemsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CharacterItems to fetch.
+     */
+    orderBy?: CharacterItemsOrderByWithRelationInput | CharacterItemsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CharacterItems.
+     */
+    cursor?: CharacterItemsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CharacterItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CharacterItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CharacterItems.
+     */
+    distinct?: CharacterItemsScalarFieldEnum | CharacterItemsScalarFieldEnum[]
+  }
+
+  /**
+   * CharacterItems findFirstOrThrow
+   */
+  export type CharacterItemsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CharacterItems
+     */
+    select?: CharacterItemsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterItemsInclude<ExtArgs> | null
+    /**
+     * Filter, which CharacterItems to fetch.
+     */
+    where?: CharacterItemsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CharacterItems to fetch.
+     */
+    orderBy?: CharacterItemsOrderByWithRelationInput | CharacterItemsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CharacterItems.
+     */
+    cursor?: CharacterItemsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CharacterItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CharacterItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CharacterItems.
+     */
+    distinct?: CharacterItemsScalarFieldEnum | CharacterItemsScalarFieldEnum[]
+  }
+
+  /**
+   * CharacterItems findMany
+   */
+  export type CharacterItemsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CharacterItems
+     */
+    select?: CharacterItemsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterItemsInclude<ExtArgs> | null
+    /**
+     * Filter, which CharacterItems to fetch.
+     */
+    where?: CharacterItemsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CharacterItems to fetch.
+     */
+    orderBy?: CharacterItemsOrderByWithRelationInput | CharacterItemsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing CharacterItems.
+     */
+    cursor?: CharacterItemsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CharacterItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CharacterItems.
+     */
+    skip?: number
+    distinct?: CharacterItemsScalarFieldEnum | CharacterItemsScalarFieldEnum[]
+  }
+
+  /**
+   * CharacterItems create
+   */
+  export type CharacterItemsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CharacterItems
+     */
+    select?: CharacterItemsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterItemsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a CharacterItems.
+     */
+    data: XOR<CharacterItemsCreateInput, CharacterItemsUncheckedCreateInput>
+  }
+
+  /**
+   * CharacterItems createMany
+   */
+  export type CharacterItemsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many CharacterItems.
+     */
+    data: CharacterItemsCreateManyInput | CharacterItemsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CharacterItems update
+   */
+  export type CharacterItemsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CharacterItems
+     */
+    select?: CharacterItemsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterItemsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a CharacterItems.
+     */
+    data: XOR<CharacterItemsUpdateInput, CharacterItemsUncheckedUpdateInput>
+    /**
+     * Choose, which CharacterItems to update.
+     */
+    where: CharacterItemsWhereUniqueInput
+  }
+
+  /**
+   * CharacterItems updateMany
+   */
+  export type CharacterItemsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update CharacterItems.
+     */
+    data: XOR<CharacterItemsUpdateManyMutationInput, CharacterItemsUncheckedUpdateManyInput>
+    /**
+     * Filter which CharacterItems to update
+     */
+    where?: CharacterItemsWhereInput
+  }
+
+  /**
+   * CharacterItems upsert
+   */
+  export type CharacterItemsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CharacterItems
+     */
+    select?: CharacterItemsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterItemsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the CharacterItems to update in case it exists.
+     */
+    where: CharacterItemsWhereUniqueInput
+    /**
+     * In case the CharacterItems found by the `where` argument doesn't exist, create a new CharacterItems with this data.
+     */
+    create: XOR<CharacterItemsCreateInput, CharacterItemsUncheckedCreateInput>
+    /**
+     * In case the CharacterItems was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CharacterItemsUpdateInput, CharacterItemsUncheckedUpdateInput>
+  }
+
+  /**
+   * CharacterItems delete
+   */
+  export type CharacterItemsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CharacterItems
+     */
+    select?: CharacterItemsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterItemsInclude<ExtArgs> | null
+    /**
+     * Filter which CharacterItems to delete.
+     */
+    where: CharacterItemsWhereUniqueInput
+  }
+
+  /**
+   * CharacterItems deleteMany
+   */
+  export type CharacterItemsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CharacterItems to delete
+     */
+    where?: CharacterItemsWhereInput
+  }
+
+  /**
+   * CharacterItems without action
+   */
+  export type CharacterItemsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CharacterItems
+     */
+    select?: CharacterItemsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterItemsInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -4024,6 +5065,15 @@ export namespace Prisma {
   };
 
   export type CharacterInventoryScalarFieldEnum = (typeof CharacterInventoryScalarFieldEnum)[keyof typeof CharacterInventoryScalarFieldEnum]
+
+
+  export const CharacterItemsScalarFieldEnum: {
+    characterItemId: 'characterItemId',
+    CharacterId: 'CharacterId',
+    itemCode: 'itemCode'
+  };
+
+  export type CharacterItemsScalarFieldEnum = (typeof CharacterItemsScalarFieldEnum)[keyof typeof CharacterItemsScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -4139,6 +5189,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Characters"> | Date | string
     User?: XOR<UsersRelationFilter, UsersWhereInput>
     CharacterInventory?: CharacterInventoryListRelationFilter
+    CharacterItems?: CharacterItemsListRelationFilter
   }
 
   export type CharactersOrderByWithRelationInput = {
@@ -4152,6 +5203,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     User?: UsersOrderByWithRelationInput
     CharacterInventory?: CharacterInventoryOrderByRelationAggregateInput
+    CharacterItems?: CharacterItemsOrderByRelationAggregateInput
   }
 
   export type CharactersWhereUniqueInput = Prisma.AtLeast<{
@@ -4168,6 +5220,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Characters"> | Date | string
     User?: XOR<UsersRelationFilter, UsersWhereInput>
     CharacterInventory?: CharacterInventoryListRelationFilter
+    CharacterItems?: CharacterItemsListRelationFilter
   }, "characterId">
 
   export type CharactersOrderByWithAggregationInput = {
@@ -4252,6 +5305,53 @@ export namespace Prisma {
     itemCount?: IntWithAggregatesFilter<"CharacterInventory"> | number
   }
 
+  export type CharacterItemsWhereInput = {
+    AND?: CharacterItemsWhereInput | CharacterItemsWhereInput[]
+    OR?: CharacterItemsWhereInput[]
+    NOT?: CharacterItemsWhereInput | CharacterItemsWhereInput[]
+    characterItemId?: IntFilter<"CharacterItems"> | number
+    CharacterId?: IntFilter<"CharacterItems"> | number
+    itemCode?: IntFilter<"CharacterItems"> | number
+    Character?: XOR<CharactersRelationFilter, CharactersWhereInput>
+  }
+
+  export type CharacterItemsOrderByWithRelationInput = {
+    characterItemId?: SortOrder
+    CharacterId?: SortOrder
+    itemCode?: SortOrder
+    Character?: CharactersOrderByWithRelationInput
+  }
+
+  export type CharacterItemsWhereUniqueInput = Prisma.AtLeast<{
+    characterItemId?: number
+    AND?: CharacterItemsWhereInput | CharacterItemsWhereInput[]
+    OR?: CharacterItemsWhereInput[]
+    NOT?: CharacterItemsWhereInput | CharacterItemsWhereInput[]
+    CharacterId?: IntFilter<"CharacterItems"> | number
+    itemCode?: IntFilter<"CharacterItems"> | number
+    Character?: XOR<CharactersRelationFilter, CharactersWhereInput>
+  }, "characterItemId">
+
+  export type CharacterItemsOrderByWithAggregationInput = {
+    characterItemId?: SortOrder
+    CharacterId?: SortOrder
+    itemCode?: SortOrder
+    _count?: CharacterItemsCountOrderByAggregateInput
+    _avg?: CharacterItemsAvgOrderByAggregateInput
+    _max?: CharacterItemsMaxOrderByAggregateInput
+    _min?: CharacterItemsMinOrderByAggregateInput
+    _sum?: CharacterItemsSumOrderByAggregateInput
+  }
+
+  export type CharacterItemsScalarWhereWithAggregatesInput = {
+    AND?: CharacterItemsScalarWhereWithAggregatesInput | CharacterItemsScalarWhereWithAggregatesInput[]
+    OR?: CharacterItemsScalarWhereWithAggregatesInput[]
+    NOT?: CharacterItemsScalarWhereWithAggregatesInput | CharacterItemsScalarWhereWithAggregatesInput[]
+    characterItemId?: IntWithAggregatesFilter<"CharacterItems"> | number
+    CharacterId?: IntWithAggregatesFilter<"CharacterItems"> | number
+    itemCode?: IntWithAggregatesFilter<"CharacterItems"> | number
+  }
+
   export type UsersCreateInput = {
     userId: string
     password: string
@@ -4321,6 +5421,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     User: UsersCreateNestedOneWithoutCharactersInput
     CharacterInventory?: CharacterInventoryCreateNestedManyWithoutCharacterInput
+    CharacterItems?: CharacterItemsCreateNestedManyWithoutCharacterInput
   }
 
   export type CharactersUncheckedCreateInput = {
@@ -4333,6 +5434,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     CharacterInventory?: CharacterInventoryUncheckedCreateNestedManyWithoutCharacterInput
+    CharacterItems?: CharacterItemsUncheckedCreateNestedManyWithoutCharacterInput
   }
 
   export type CharactersUpdateInput = {
@@ -4344,6 +5446,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     User?: UsersUpdateOneRequiredWithoutCharactersNestedInput
     CharacterInventory?: CharacterInventoryUpdateManyWithoutCharacterNestedInput
+    CharacterItems?: CharacterItemsUpdateManyWithoutCharacterNestedInput
   }
 
   export type CharactersUncheckedUpdateInput = {
@@ -4356,6 +5459,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     CharacterInventory?: CharacterInventoryUncheckedUpdateManyWithoutCharacterNestedInput
+    CharacterItems?: CharacterItemsUncheckedUpdateManyWithoutCharacterNestedInput
   }
 
   export type CharactersCreateManyInput = {
@@ -4432,6 +5536,44 @@ export namespace Prisma {
     CharacterId?: IntFieldUpdateOperationsInput | number
     itemCode?: IntFieldUpdateOperationsInput | number
     itemCount?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CharacterItemsCreateInput = {
+    itemCode: number
+    Character: CharactersCreateNestedOneWithoutCharacterItemsInput
+  }
+
+  export type CharacterItemsUncheckedCreateInput = {
+    characterItemId?: number
+    CharacterId: number
+    itemCode: number
+  }
+
+  export type CharacterItemsUpdateInput = {
+    itemCode?: IntFieldUpdateOperationsInput | number
+    Character?: CharactersUpdateOneRequiredWithoutCharacterItemsNestedInput
+  }
+
+  export type CharacterItemsUncheckedUpdateInput = {
+    characterItemId?: IntFieldUpdateOperationsInput | number
+    CharacterId?: IntFieldUpdateOperationsInput | number
+    itemCode?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CharacterItemsCreateManyInput = {
+    characterItemId?: number
+    CharacterId: number
+    itemCode: number
+  }
+
+  export type CharacterItemsUpdateManyMutationInput = {
+    itemCode?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CharacterItemsUncheckedUpdateManyInput = {
+    characterItemId?: IntFieldUpdateOperationsInput | number
+    CharacterId?: IntFieldUpdateOperationsInput | number
+    itemCode?: IntFieldUpdateOperationsInput | number
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -4546,7 +5688,17 @@ export namespace Prisma {
     none?: CharacterInventoryWhereInput
   }
 
+  export type CharacterItemsListRelationFilter = {
+    every?: CharacterItemsWhereInput
+    some?: CharacterItemsWhereInput
+    none?: CharacterItemsWhereInput
+  }
+
   export type CharacterInventoryOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CharacterItemsOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -4653,6 +5805,36 @@ export namespace Prisma {
     itemCount?: SortOrder
   }
 
+  export type CharacterItemsCountOrderByAggregateInput = {
+    characterItemId?: SortOrder
+    CharacterId?: SortOrder
+    itemCode?: SortOrder
+  }
+
+  export type CharacterItemsAvgOrderByAggregateInput = {
+    characterItemId?: SortOrder
+    CharacterId?: SortOrder
+    itemCode?: SortOrder
+  }
+
+  export type CharacterItemsMaxOrderByAggregateInput = {
+    characterItemId?: SortOrder
+    CharacterId?: SortOrder
+    itemCode?: SortOrder
+  }
+
+  export type CharacterItemsMinOrderByAggregateInput = {
+    characterItemId?: SortOrder
+    CharacterId?: SortOrder
+    itemCode?: SortOrder
+  }
+
+  export type CharacterItemsSumOrderByAggregateInput = {
+    characterItemId?: SortOrder
+    CharacterId?: SortOrder
+    itemCode?: SortOrder
+  }
+
   export type CharactersCreateNestedManyWithoutUserInput = {
     create?: XOR<CharactersCreateWithoutUserInput, CharactersUncheckedCreateWithoutUserInput> | CharactersCreateWithoutUserInput[] | CharactersUncheckedCreateWithoutUserInput[]
     connectOrCreate?: CharactersCreateOrConnectWithoutUserInput | CharactersCreateOrConnectWithoutUserInput[]
@@ -4716,11 +5898,25 @@ export namespace Prisma {
     connect?: CharacterInventoryWhereUniqueInput | CharacterInventoryWhereUniqueInput[]
   }
 
+  export type CharacterItemsCreateNestedManyWithoutCharacterInput = {
+    create?: XOR<CharacterItemsCreateWithoutCharacterInput, CharacterItemsUncheckedCreateWithoutCharacterInput> | CharacterItemsCreateWithoutCharacterInput[] | CharacterItemsUncheckedCreateWithoutCharacterInput[]
+    connectOrCreate?: CharacterItemsCreateOrConnectWithoutCharacterInput | CharacterItemsCreateOrConnectWithoutCharacterInput[]
+    createMany?: CharacterItemsCreateManyCharacterInputEnvelope
+    connect?: CharacterItemsWhereUniqueInput | CharacterItemsWhereUniqueInput[]
+  }
+
   export type CharacterInventoryUncheckedCreateNestedManyWithoutCharacterInput = {
     create?: XOR<CharacterInventoryCreateWithoutCharacterInput, CharacterInventoryUncheckedCreateWithoutCharacterInput> | CharacterInventoryCreateWithoutCharacterInput[] | CharacterInventoryUncheckedCreateWithoutCharacterInput[]
     connectOrCreate?: CharacterInventoryCreateOrConnectWithoutCharacterInput | CharacterInventoryCreateOrConnectWithoutCharacterInput[]
     createMany?: CharacterInventoryCreateManyCharacterInputEnvelope
     connect?: CharacterInventoryWhereUniqueInput | CharacterInventoryWhereUniqueInput[]
+  }
+
+  export type CharacterItemsUncheckedCreateNestedManyWithoutCharacterInput = {
+    create?: XOR<CharacterItemsCreateWithoutCharacterInput, CharacterItemsUncheckedCreateWithoutCharacterInput> | CharacterItemsCreateWithoutCharacterInput[] | CharacterItemsUncheckedCreateWithoutCharacterInput[]
+    connectOrCreate?: CharacterItemsCreateOrConnectWithoutCharacterInput | CharacterItemsCreateOrConnectWithoutCharacterInput[]
+    createMany?: CharacterItemsCreateManyCharacterInputEnvelope
+    connect?: CharacterItemsWhereUniqueInput | CharacterItemsWhereUniqueInput[]
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -4753,6 +5949,20 @@ export namespace Prisma {
     deleteMany?: CharacterInventoryScalarWhereInput | CharacterInventoryScalarWhereInput[]
   }
 
+  export type CharacterItemsUpdateManyWithoutCharacterNestedInput = {
+    create?: XOR<CharacterItemsCreateWithoutCharacterInput, CharacterItemsUncheckedCreateWithoutCharacterInput> | CharacterItemsCreateWithoutCharacterInput[] | CharacterItemsUncheckedCreateWithoutCharacterInput[]
+    connectOrCreate?: CharacterItemsCreateOrConnectWithoutCharacterInput | CharacterItemsCreateOrConnectWithoutCharacterInput[]
+    upsert?: CharacterItemsUpsertWithWhereUniqueWithoutCharacterInput | CharacterItemsUpsertWithWhereUniqueWithoutCharacterInput[]
+    createMany?: CharacterItemsCreateManyCharacterInputEnvelope
+    set?: CharacterItemsWhereUniqueInput | CharacterItemsWhereUniqueInput[]
+    disconnect?: CharacterItemsWhereUniqueInput | CharacterItemsWhereUniqueInput[]
+    delete?: CharacterItemsWhereUniqueInput | CharacterItemsWhereUniqueInput[]
+    connect?: CharacterItemsWhereUniqueInput | CharacterItemsWhereUniqueInput[]
+    update?: CharacterItemsUpdateWithWhereUniqueWithoutCharacterInput | CharacterItemsUpdateWithWhereUniqueWithoutCharacterInput[]
+    updateMany?: CharacterItemsUpdateManyWithWhereWithoutCharacterInput | CharacterItemsUpdateManyWithWhereWithoutCharacterInput[]
+    deleteMany?: CharacterItemsScalarWhereInput | CharacterItemsScalarWhereInput[]
+  }
+
   export type CharacterInventoryUncheckedUpdateManyWithoutCharacterNestedInput = {
     create?: XOR<CharacterInventoryCreateWithoutCharacterInput, CharacterInventoryUncheckedCreateWithoutCharacterInput> | CharacterInventoryCreateWithoutCharacterInput[] | CharacterInventoryUncheckedCreateWithoutCharacterInput[]
     connectOrCreate?: CharacterInventoryCreateOrConnectWithoutCharacterInput | CharacterInventoryCreateOrConnectWithoutCharacterInput[]
@@ -4767,6 +5977,20 @@ export namespace Prisma {
     deleteMany?: CharacterInventoryScalarWhereInput | CharacterInventoryScalarWhereInput[]
   }
 
+  export type CharacterItemsUncheckedUpdateManyWithoutCharacterNestedInput = {
+    create?: XOR<CharacterItemsCreateWithoutCharacterInput, CharacterItemsUncheckedCreateWithoutCharacterInput> | CharacterItemsCreateWithoutCharacterInput[] | CharacterItemsUncheckedCreateWithoutCharacterInput[]
+    connectOrCreate?: CharacterItemsCreateOrConnectWithoutCharacterInput | CharacterItemsCreateOrConnectWithoutCharacterInput[]
+    upsert?: CharacterItemsUpsertWithWhereUniqueWithoutCharacterInput | CharacterItemsUpsertWithWhereUniqueWithoutCharacterInput[]
+    createMany?: CharacterItemsCreateManyCharacterInputEnvelope
+    set?: CharacterItemsWhereUniqueInput | CharacterItemsWhereUniqueInput[]
+    disconnect?: CharacterItemsWhereUniqueInput | CharacterItemsWhereUniqueInput[]
+    delete?: CharacterItemsWhereUniqueInput | CharacterItemsWhereUniqueInput[]
+    connect?: CharacterItemsWhereUniqueInput | CharacterItemsWhereUniqueInput[]
+    update?: CharacterItemsUpdateWithWhereUniqueWithoutCharacterInput | CharacterItemsUpdateWithWhereUniqueWithoutCharacterInput[]
+    updateMany?: CharacterItemsUpdateManyWithWhereWithoutCharacterInput | CharacterItemsUpdateManyWithWhereWithoutCharacterInput[]
+    deleteMany?: CharacterItemsScalarWhereInput | CharacterItemsScalarWhereInput[]
+  }
+
   export type CharactersCreateNestedOneWithoutCharacterInventoryInput = {
     create?: XOR<CharactersCreateWithoutCharacterInventoryInput, CharactersUncheckedCreateWithoutCharacterInventoryInput>
     connectOrCreate?: CharactersCreateOrConnectWithoutCharacterInventoryInput
@@ -4779,6 +6003,20 @@ export namespace Prisma {
     upsert?: CharactersUpsertWithoutCharacterInventoryInput
     connect?: CharactersWhereUniqueInput
     update?: XOR<XOR<CharactersUpdateToOneWithWhereWithoutCharacterInventoryInput, CharactersUpdateWithoutCharacterInventoryInput>, CharactersUncheckedUpdateWithoutCharacterInventoryInput>
+  }
+
+  export type CharactersCreateNestedOneWithoutCharacterItemsInput = {
+    create?: XOR<CharactersCreateWithoutCharacterItemsInput, CharactersUncheckedCreateWithoutCharacterItemsInput>
+    connectOrCreate?: CharactersCreateOrConnectWithoutCharacterItemsInput
+    connect?: CharactersWhereUniqueInput
+  }
+
+  export type CharactersUpdateOneRequiredWithoutCharacterItemsNestedInput = {
+    create?: XOR<CharactersCreateWithoutCharacterItemsInput, CharactersUncheckedCreateWithoutCharacterItemsInput>
+    connectOrCreate?: CharactersCreateOrConnectWithoutCharacterItemsInput
+    upsert?: CharactersUpsertWithoutCharacterItemsInput
+    connect?: CharactersWhereUniqueInput
+    update?: XOR<XOR<CharactersUpdateToOneWithWhereWithoutCharacterItemsInput, CharactersUpdateWithoutCharacterItemsInput>, CharactersUncheckedUpdateWithoutCharacterItemsInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -4883,6 +6121,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     CharacterInventory?: CharacterInventoryCreateNestedManyWithoutCharacterInput
+    CharacterItems?: CharacterItemsCreateNestedManyWithoutCharacterInput
   }
 
   export type CharactersUncheckedCreateWithoutUserInput = {
@@ -4894,6 +6133,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     CharacterInventory?: CharacterInventoryUncheckedCreateNestedManyWithoutCharacterInput
+    CharacterItems?: CharacterItemsUncheckedCreateNestedManyWithoutCharacterInput
   }
 
   export type CharactersCreateOrConnectWithoutUserInput = {
@@ -4978,6 +6218,25 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type CharacterItemsCreateWithoutCharacterInput = {
+    itemCode: number
+  }
+
+  export type CharacterItemsUncheckedCreateWithoutCharacterInput = {
+    characterItemId?: number
+    itemCode: number
+  }
+
+  export type CharacterItemsCreateOrConnectWithoutCharacterInput = {
+    where: CharacterItemsWhereUniqueInput
+    create: XOR<CharacterItemsCreateWithoutCharacterInput, CharacterItemsUncheckedCreateWithoutCharacterInput>
+  }
+
+  export type CharacterItemsCreateManyCharacterInputEnvelope = {
+    data: CharacterItemsCreateManyCharacterInput | CharacterItemsCreateManyCharacterInput[]
+    skipDuplicates?: boolean
+  }
+
   export type UsersUpsertWithoutCharactersInput = {
     update: XOR<UsersUpdateWithoutCharactersInput, UsersUncheckedUpdateWithoutCharactersInput>
     create: XOR<UsersCreateWithoutCharactersInput, UsersUncheckedCreateWithoutCharactersInput>
@@ -5031,6 +6290,31 @@ export namespace Prisma {
     itemCount?: IntFilter<"CharacterInventory"> | number
   }
 
+  export type CharacterItemsUpsertWithWhereUniqueWithoutCharacterInput = {
+    where: CharacterItemsWhereUniqueInput
+    update: XOR<CharacterItemsUpdateWithoutCharacterInput, CharacterItemsUncheckedUpdateWithoutCharacterInput>
+    create: XOR<CharacterItemsCreateWithoutCharacterInput, CharacterItemsUncheckedCreateWithoutCharacterInput>
+  }
+
+  export type CharacterItemsUpdateWithWhereUniqueWithoutCharacterInput = {
+    where: CharacterItemsWhereUniqueInput
+    data: XOR<CharacterItemsUpdateWithoutCharacterInput, CharacterItemsUncheckedUpdateWithoutCharacterInput>
+  }
+
+  export type CharacterItemsUpdateManyWithWhereWithoutCharacterInput = {
+    where: CharacterItemsScalarWhereInput
+    data: XOR<CharacterItemsUpdateManyMutationInput, CharacterItemsUncheckedUpdateManyWithoutCharacterInput>
+  }
+
+  export type CharacterItemsScalarWhereInput = {
+    AND?: CharacterItemsScalarWhereInput | CharacterItemsScalarWhereInput[]
+    OR?: CharacterItemsScalarWhereInput[]
+    NOT?: CharacterItemsScalarWhereInput | CharacterItemsScalarWhereInput[]
+    characterItemId?: IntFilter<"CharacterItems"> | number
+    CharacterId?: IntFilter<"CharacterItems"> | number
+    itemCode?: IntFilter<"CharacterItems"> | number
+  }
+
   export type CharactersCreateWithoutCharacterInventoryInput = {
     characterName: string
     characterPower?: number
@@ -5039,6 +6323,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     User: UsersCreateNestedOneWithoutCharactersInput
+    CharacterItems?: CharacterItemsCreateNestedManyWithoutCharacterInput
   }
 
   export type CharactersUncheckedCreateWithoutCharacterInventoryInput = {
@@ -5050,6 +6335,7 @@ export namespace Prisma {
     gameMoney?: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    CharacterItems?: CharacterItemsUncheckedCreateNestedManyWithoutCharacterInput
   }
 
   export type CharactersCreateOrConnectWithoutCharacterInventoryInput = {
@@ -5076,6 +6362,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     User?: UsersUpdateOneRequiredWithoutCharactersNestedInput
+    CharacterItems?: CharacterItemsUpdateManyWithoutCharacterNestedInput
   }
 
   export type CharactersUncheckedUpdateWithoutCharacterInventoryInput = {
@@ -5087,6 +6374,69 @@ export namespace Prisma {
     gameMoney?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    CharacterItems?: CharacterItemsUncheckedUpdateManyWithoutCharacterNestedInput
+  }
+
+  export type CharactersCreateWithoutCharacterItemsInput = {
+    characterName: string
+    characterPower?: number
+    characterHealth?: number
+    gameMoney?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    User: UsersCreateNestedOneWithoutCharactersInput
+    CharacterInventory?: CharacterInventoryCreateNestedManyWithoutCharacterInput
+  }
+
+  export type CharactersUncheckedCreateWithoutCharacterItemsInput = {
+    characterId?: number
+    UserId: string
+    characterName: string
+    characterPower?: number
+    characterHealth?: number
+    gameMoney?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    CharacterInventory?: CharacterInventoryUncheckedCreateNestedManyWithoutCharacterInput
+  }
+
+  export type CharactersCreateOrConnectWithoutCharacterItemsInput = {
+    where: CharactersWhereUniqueInput
+    create: XOR<CharactersCreateWithoutCharacterItemsInput, CharactersUncheckedCreateWithoutCharacterItemsInput>
+  }
+
+  export type CharactersUpsertWithoutCharacterItemsInput = {
+    update: XOR<CharactersUpdateWithoutCharacterItemsInput, CharactersUncheckedUpdateWithoutCharacterItemsInput>
+    create: XOR<CharactersCreateWithoutCharacterItemsInput, CharactersUncheckedCreateWithoutCharacterItemsInput>
+    where?: CharactersWhereInput
+  }
+
+  export type CharactersUpdateToOneWithWhereWithoutCharacterItemsInput = {
+    where?: CharactersWhereInput
+    data: XOR<CharactersUpdateWithoutCharacterItemsInput, CharactersUncheckedUpdateWithoutCharacterItemsInput>
+  }
+
+  export type CharactersUpdateWithoutCharacterItemsInput = {
+    characterName?: StringFieldUpdateOperationsInput | string
+    characterPower?: IntFieldUpdateOperationsInput | number
+    characterHealth?: IntFieldUpdateOperationsInput | number
+    gameMoney?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    User?: UsersUpdateOneRequiredWithoutCharactersNestedInput
+    CharacterInventory?: CharacterInventoryUpdateManyWithoutCharacterNestedInput
+  }
+
+  export type CharactersUncheckedUpdateWithoutCharacterItemsInput = {
+    characterId?: IntFieldUpdateOperationsInput | number
+    UserId?: StringFieldUpdateOperationsInput | string
+    characterName?: StringFieldUpdateOperationsInput | string
+    characterPower?: IntFieldUpdateOperationsInput | number
+    characterHealth?: IntFieldUpdateOperationsInput | number
+    gameMoney?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    CharacterInventory?: CharacterInventoryUncheckedUpdateManyWithoutCharacterNestedInput
   }
 
   export type CharactersCreateManyUserInput = {
@@ -5107,6 +6457,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     CharacterInventory?: CharacterInventoryUpdateManyWithoutCharacterNestedInput
+    CharacterItems?: CharacterItemsUpdateManyWithoutCharacterNestedInput
   }
 
   export type CharactersUncheckedUpdateWithoutUserInput = {
@@ -5118,6 +6469,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     CharacterInventory?: CharacterInventoryUncheckedUpdateManyWithoutCharacterNestedInput
+    CharacterItems?: CharacterItemsUncheckedUpdateManyWithoutCharacterNestedInput
   }
 
   export type CharactersUncheckedUpdateManyWithoutUserInput = {
@@ -5136,6 +6488,11 @@ export namespace Prisma {
     itemCount: number
   }
 
+  export type CharacterItemsCreateManyCharacterInput = {
+    characterItemId?: number
+    itemCode: number
+  }
+
   export type CharacterInventoryUpdateWithoutCharacterInput = {
     itemCode?: IntFieldUpdateOperationsInput | number
     itemCount?: IntFieldUpdateOperationsInput | number
@@ -5151,6 +6508,20 @@ export namespace Prisma {
     characterInventoryId?: IntFieldUpdateOperationsInput | number
     itemCode?: IntFieldUpdateOperationsInput | number
     itemCount?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CharacterItemsUpdateWithoutCharacterInput = {
+    itemCode?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CharacterItemsUncheckedUpdateWithoutCharacterInput = {
+    characterItemId?: IntFieldUpdateOperationsInput | number
+    itemCode?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CharacterItemsUncheckedUpdateManyWithoutCharacterInput = {
+    characterItemId?: IntFieldUpdateOperationsInput | number
+    itemCode?: IntFieldUpdateOperationsInput | number
   }
 
 
@@ -5178,6 +6549,10 @@ export namespace Prisma {
      * @deprecated Use CharacterInventoryDefaultArgs instead
      */
     export type CharacterInventoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = CharacterInventoryDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use CharacterItemsDefaultArgs instead
+     */
+    export type CharacterItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = CharacterItemsDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany
