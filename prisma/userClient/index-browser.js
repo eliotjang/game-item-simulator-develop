@@ -140,15 +140,9 @@ exports.Prisma.CharactersScalarFieldEnum = {
 
 exports.Prisma.CharacterInventoryScalarFieldEnum = {
   characterInventoryId: 'characterInventoryId',
-  CharacterId: 'CharacterId'
-};
-
-exports.Prisma.ItemsScalarFieldEnum = {
+  CharacterId: 'CharacterId',
   itemCode: 'itemCode',
-  itemName: 'itemName',
-  itemHealth: 'itemHealth',
-  itemPower: 'itemPower',
-  itemPrice: 'itemPrice'
+  itemCount: 'itemCount'
 };
 
 exports.Prisma.SortOrder = {
@@ -160,8 +154,7 @@ exports.Prisma.SortOrder = {
 exports.Prisma.ModelName = {
   Users: 'Users',
   Characters: 'Characters',
-  CharacterInventory: 'CharacterInventory',
-  Items: 'Items'
+  CharacterInventory: 'CharacterInventory'
 };
 
 /**

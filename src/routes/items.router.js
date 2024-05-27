@@ -23,7 +23,6 @@ router.post('/items', async (req, res, next) => {
       data: {
         itemCode,
         itemName,
-        // Request body에서 아이템 스탯 미지정 시, 0 할당
         itemHealth: itemHealth !== undefined ? itemHealth : 0,
         itemPower: itemPower !== undefined ? itemPower : 0,
         itemPrice,

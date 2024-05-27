@@ -2,13 +2,14 @@ import express from 'express';
 import UsersRouter from './routes/users.router.js';
 import CharactersRouter from './routes/characters.router.js';
 import ItemsRouter from './routes/items.router.js';
+import CharacterInventoryRouter from './routes/character-inventory.router.js';
 import errorHandlingMiddleware from './middlewares/error-handling.middleware.js';
 
 const app = express();
 const PORT = 80;
 
 app.use(express.json());
-app.use('/api', [UsersRouter, CharactersRouter, ItemsRouter]);
+app.use('/api', [UsersRouter, CharactersRouter, ItemsRouter, CharacterInventoryRouter]);
 app.use(errorHandlingMiddleware);
 
 app.listen(PORT, () => {

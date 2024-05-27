@@ -30,30 +30,22 @@ model Characters {
   createdAt       DateTime @default(now()) @map("created_at")
   updatedAt       DateTime @updatedAt @map("updated_at")
 
-  User               Users               @relation(fields: [UserId], references: [userId], onDelete: Cascade)
-  CharacterInventory CharacterInventory?
+  User               Users                @relation(fields: [UserId], references: [userId], onDelete: Cascade)
+  CharacterInventory CharacterInventory[]
 
   @@map("characters")
 }
 
 model CharacterInventory {
-  characterInventoryId String @id @default(uuid()) @map("character_inventory_id")
-  CharacterId          Int    @unique @map("character_id")
-
+  characterInventoryId Int @id @default(autoincrement()) @map("character_inventory_id")
+  CharacterId          Int @map("character_id")
+  itemCode             Int @map("item_code")
+  itemCount            Int @map("item_count")
   //Items Items[]
   //Items String
   // Json.stringify(), Json.parse() 그리고 Items에 인벤토리 외래키를 추가해야하는 소요
+
   Character Characters @relation(fields: [CharacterId], references: [characterId], onDelete: Cascade)
 
   @@map("character_inventory")
-}
-
-model Items {
-  itemCode   Int    @id @default(autoincrement()) @map("item_code")
-  itemName   String @unique @map("item_name")
-  itemHealth Int    @map("item_health")
-  itemPower  Int    @map("item_power")
-  itemPrice  Int    @map("item_price")
-
-  @@map("Items")
 }

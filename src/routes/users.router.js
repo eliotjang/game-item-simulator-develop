@@ -83,7 +83,7 @@ router.post('/sign-in', async (req, res, next) => {
   }
 });
 
-// Authorizatoin 헤더 테스트 API
+// Authorization 헤더 테스트 API
 router.post('/auth-header-test', (req, res, next) => {
   try {
     console.log(req.header.authorization);
