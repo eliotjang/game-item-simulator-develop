@@ -88,9 +88,13 @@ router.post('/character-inventory/:characterId', authMiddleware, async (req, res
 
     return res.status(200).json({
       message: '아이템 구입에 성공했습니다.',
-      baseGameMoney: character.gameMoney,
+      baseData: {
+        gameMoney: character.gameMoney,
+      },
       totalPurchasePrice,
-      changedGameMoney: paymentCharacter.gameMoney,
+      changedData: {
+        gameMoney: paymentCharacter.gameMoney,
+      },
     });
   } catch (error) {
     next(error);
@@ -181,9 +185,13 @@ router.delete('/character-inventory/:characterId', authMiddleware, async (req, r
 
     return res.status(200).json({
       message: '아이템 판매에 성공했습니다.',
-      baseGameMoney: character.gameMoney,
+      baseData: {
+        gameMoney: character.gameMoney,
+      },
       totalSellPrice,
-      changedGameMoney: paymentCharacter.gameMoney,
+      changedData: {
+        gameMoney: paymentCharacter.gameMoney,
+      },
     });
   } catch (error) {
     next(error);
@@ -203,7 +211,7 @@ router.get('/character-inventory/:characterId', authMiddleware, async (req, res,
       },
     });
     if (!character) {
-      return res.status(404).json({ errorMessage: '캐릭터 조회에 실패했습니다.' });
+      return res.status(400).json({ errorMessage: '캐릭터 조회에 실패했습니다.' });
     }
 
     // 인벤토리 아이템 조회

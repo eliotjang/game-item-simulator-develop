@@ -18,7 +18,7 @@ router.get('/character-items/:characterId', async (req, res, next) => {
       },
     });
     if (!character) {
-      return res.status(404).json({ errorMessage: '캐릭터 조회에 실패했습니다.' });
+      return res.status(400).json({ errorMessage: '캐릭터 조회에 실패했습니다.' });
     }
 
     // 캐릭터 장착 아이템 조회

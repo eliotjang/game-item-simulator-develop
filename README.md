@@ -1,8 +1,16 @@
 # Game Item Simulator Develop
 
+### AWS 배포 링크
+
+- [게임 아이템 제작 시뮬레이터 서비스 링크](http://eliotjang.shop:3000/)
+
+### ERD 클라우드 링크
+
+- [ERD 클라우드 링크](https://www.erdcloud.com/d/WBqFhxKLx2hLs4pyg)
+
 ### API 명세서
 
--
+- [API 명세서 링크](https://eliotjang.notion.site/API-419edb6939ce45148d6161cdd03d2bec?pvs=4)
 
 ### BackEnd Skills
 
@@ -10,7 +18,7 @@
 - Database : MySQL
 - Database Cloud : AWS RDS
 - ORM : Prisma
-- JWT
+- JWT Authorization
 
 ### 폴더 구조
 

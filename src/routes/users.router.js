@@ -30,7 +30,7 @@ router.post('/sign-up', async (req, res, next) => {
     });
     // 아이디 중복 시 409 Conflict 상태코드 및 에러 메시지 반환
     if (isExistUser) {
-      return res.status(409).json({ message: '이미 존재하는 아이디입니다.' });
+      return res.status(409).json({ errorMessage: '이미 존재하는 아이디입니다.' });
     }
 
     // 비밀번호 암호화
@@ -44,7 +44,10 @@ router.post('/sign-up', async (req, res, next) => {
     });
 
     // 회원가입 성공 시, 비밀번호 제외 사용자 정보 반환
-    return res.status(201).json({ data: { userId, name } });
+    return res.status(201).json({
+      message: '회원가입이 완료되었습니다.',
+      data: { userId, name },
+    });
   } catch (err) {
     next(err);
   }
@@ -58,11 +61,11 @@ router.post('/sign-in', async (req, res, next) => {
     const user = await userPrisma.users.findFirst({ where: { userId } });
     // 해당 아이디가 없을 경우, 401 Unauthorized 상태코드 및 에러 메시지 반환
     if (!user) {
-      return res.status(401).json({ message: '존재하지 않는 아이디입니다.' });
+      return res.status(401).json({ errorMessage: '존재하지 않는 아이디입니다.' });
     }
     // 비밀번호가 미일치 시, 401 Unauthorized 상태코드 및 에러 메시지 반환
     if (!(await bcrypt.compare(password, user.password))) {
-      return res.status(401).json({ message: '비밀번호가 일치하지 않습니다.' });
+      return res.status(401).json({ errorMessage: '비밀번호가 일치하지 않습니다.' });
     }
 
     // 로그인 성공 시, 액세스 토큰 생성
@@ -77,7 +80,10 @@ router.post('/sign-in', async (req, res, next) => {
     req.header.authorization = `Bearer ${token}`;
 
     // 로그인 성공 및 액세스 토큰 발급 완료 메시지 반환
-    return res.status(200).json({ message: '로그인 성공 및 액세스 토큰이 발급 완료되었습니다.' });
+    return res.status(200).json({
+      errorMessage: '로그인 성공 및 액세스 토큰이 발급 완료되었습니다.',
+      Authorization: `Bearer ${token}`,
+    });
   } catch (err) {
     next(err);
   }

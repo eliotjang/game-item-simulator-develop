@@ -17,7 +17,7 @@ router.post('/characters', authMiddleware, async (req, res, next) => {
     });
     // 캐릭터 명 중복 시 409 Conflict 상태코드 및 에러 메시지 반환
     if (isExistCharacter) {
-      return res.status(409).json({ message: '이미 존재하는 이름입니다.' });
+      return res.status(409).json({ errorMessage: '이미 존재하는 이름입니다.' });
     }
 
     const character = await userPrisma.characters.create({
@@ -31,7 +31,7 @@ router.post('/characters', authMiddleware, async (req, res, next) => {
     return res.status(201).json({
       message: `새로운 캐릭터 ${characterName}을(를) 생성했습니다.`,
       data: {
-        character_id: character.characterId,
+        characterId: character.characterId,
       },
     });
   } catch (error) {
@@ -53,7 +53,7 @@ router.delete('/characters/:characterId', authMiddleware, async (req, res, next)
       },
     });
     if (!isExistCharacter) {
-      return res.status(404).json({ errorMessage: '캐릭터 조회에 실패했습니다.' });
+      return res.status(400).json({ errorMessage: '캐릭터 조회에 실패했습니다.' });
     }
 
     const characterName = isExistCharacter.characterName;
@@ -82,7 +82,7 @@ router.get('/characters/:characterId', searchAuthMiddleware, async (req, res, ne
       },
     });
     if (!character) {
-      return res.status(404).json({ errorMessage: '캐릭터 조회에 실패했습니다.' });
+      return res.status(400).json({ errorMessage: '캐릭터 조회에 실패했습니다.' });
     }
 
     // 내가 내 캐릭터를 조회하는 경우

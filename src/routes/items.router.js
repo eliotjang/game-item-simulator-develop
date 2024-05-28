@@ -19,6 +19,15 @@ router.post('/items', async (req, res, next) => {
     const { itemCode, itemName, itemPrice } = validation;
     let { itemHealth, itemPower } = req.body;
 
+    const isExistItem = await gamePrisma.items.findFirst({
+      where: {
+        itemCode,
+      },
+    });
+    if (isExistItem) {
+      return res.status(409).json({ errorMessage: '이미 존재하는 아이템 코드입니다.' });
+    }
+
     const item = await gamePrisma.items.create({
       data: {
         itemCode,
@@ -51,7 +60,7 @@ router.patch('/items/:itemCode', async (req, res, next) => {
       },
     });
     if (!targetItem) {
-      return res.status(404).json({ errorMessage: '아이템 조회에 실패했습니다.' });
+      return res.status(400).json({ errorMessage: '아이템 조회에 실패했습니다.' });
     }
 
     await gamePrisma.items.update({
@@ -94,7 +103,10 @@ router.get('/items', async (req, res, next) => {
       },
     });
 
-    return res.status(200).json({ data: items });
+    return res.status(200).json({
+      message: '생성된 아이템 목록입니다.',
+      data: items,
+    });
   } catch (error) {
     next(error);
   }
@@ -103,6 +115,7 @@ router.get('/items', async (req, res, next) => {
 // 아이템 상세 조회 API
 router.get('/items/:itemCode', async (req, res, next) => {
   try {
+    // Path parameter로 아이템 코드 전달
     const { itemCode } = req.params;
     const item = await gamePrisma.items.findFirst({
       where: {
@@ -118,7 +131,10 @@ router.get('/items/:itemCode', async (req, res, next) => {
       },
     });
 
-    return res.status(200).json({ data: item });
+    return res.status(200).json({
+      message: '아이템 상세 조회입니다.',
+      data: item,
+    });
   } catch (error) {
     next(error);
   }
