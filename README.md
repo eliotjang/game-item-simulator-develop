@@ -7,6 +7,10 @@
 - DNS 주소 : `eliotjang.shop:3000`
 - [AWS 배포 링크](http://eliotjang.shop:3000/)
 
+### 설계 및 구현
+
+- [게임 아이템 제작 시뮬레이션 서비스 설계 및 구현 링크](https://eliotjang.notion.site/Node-js-d2aab2cd5c7340f9bdf6e2b481eac0fc?pvs=4)
+
 ### ERD 클라우드
 
 ![](https://github.com/eliotjang/game-item-simulator-develop/blob/main/assets/ERD.png)
