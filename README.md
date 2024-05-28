@@ -2,7 +2,7 @@
 
 ### AWS 배포 링크
 
-- [게임 아이템 제작 시뮬레이터 서비스 링크](http://eliotjang.shop:3000/)
+- [AWS 배포 링크](http://eliotjang.shop:3000/)
 
 ### ERD 클라우드 링크
 
@@ -14,23 +14,52 @@
 
 ### BackEnd Skills
 
-- Web Framwork : Node.js의 Express
-- Database : MySQL
-- Database Cloud : AWS RDS
-- ORM : Prisma
-- JWT Authorization
+![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
 
 ### 폴더 구조
 
-- prisma
-  - schema.prisma
-- src
-  - middlewares
-  - routes
-  - utils
-    - prisma
-      - index.js
-  - app.js
+```markdown
+node_modules/
+prisma/
+├ gameClient
+├ userClient
+├── game.schema.prisma
+└── user.schema.prisma
+src/
+├── middlewares/
+│ ├── auth.middleware.js
+│ ├── search-auth.middleware.js
+│ └── error-handling.middleware.js
+├── routes/
+│ ├── auth.route.js
+│ ├── resume.route.js
+│ └── user.route.js
+├── services/
+│ ├── auth.service.js
+│ ├── resume.service.js
+│ └── user.service.js
+├── utils/
+│ ├── errorHandler/
+│ │ └── errorHandler.js
+└── jwt/
+└── jwt.js
+prisma/
+├── prisma.util.js
+validation/
+├── auth.validation.js
+├── resume.validation.js
+└── statusCode.js
+app.js
+.env
+.gitignore
+.prettierrc
+package.json
+README.md
+yarn.lock
+```
 
 ### Q&A
 
