@@ -2,7 +2,7 @@
 
 ### AWS 배포 링크
 
-![](assets\address.png)
+![](C:\GitHub\game-item-simulator-develop\assets\address.png)
 
 - DNS 주소 : `eliotjang.shop:3000`
 - [AWS 배포 링크](http://eliotjang.shop:3000/)
@@ -11,11 +11,11 @@
 
 ![](assets\ERD.png)
 
-- [ERD 클라우드 링크](https://www.erdcloud.com/d/WBqFhxKLx2hLs4pyg)
+- [ERD 클라우드 링크](C:\GitHub\game-item-simulator-develop\assets\ERD.png)
 
 ### API 명세서
 
-![](assets\API.png)
+![](C:\GitHub\game-item-simulator-develop\assets\API.png)
 
 - [API 명세서 링크](https://eliotjang.notion.site/API-419edb6939ce45148d6161cdd03d2bec?pvs=4)
 
