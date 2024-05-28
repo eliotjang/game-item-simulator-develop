@@ -23,36 +23,30 @@
 
 ```markdown
 node_modules/
+
 prisma/
-├ gameClient
-├ userClient
+├ gameClient/
+├ userClient/
 ├── game.schema.prisma
 └── user.schema.prisma
+
 src/
 ├── middlewares/
 │ ├── auth.middleware.js
 │ ├── search-auth.middleware.js
 │ └── error-handling.middleware.js
 ├── routes/
-│ ├── auth.route.js
-│ ├── resume.route.js
-│ └── user.route.js
-├── services/
-│ ├── auth.service.js
-│ ├── resume.service.js
-│ └── user.service.js
-├── utils/
-│ ├── errorHandler/
-│ │ └── errorHandler.js
-└── jwt/
-└── jwt.js
-prisma/
-├── prisma.util.js
-validation/
-├── auth.validation.js
-├── resume.validation.js
-└── statusCode.js
-app.js
+│ ├── character-inventory.router.js
+│ ├── character-items.router.js
+│ ├── characters.router.js
+│ ├── game-content.router.js
+│ ├── items.router.js
+│ └── users.router.js
+├── utils/prisma
+│ ├── game.client.js
+│ └── user.client.js
+└── app.js
+
 .env
 .gitignore
 .prettierrc
