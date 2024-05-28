@@ -11,7 +11,7 @@
 
 ![](https://github.com/eliotjang/game-item-simulator-develop/blob/main/assets/ERD.png)
 
-- [ERD 클라우드 링크](C:\GitHub\game-item-simulator-develop\assets\ERD.png)
+- [ERD 클라우드 링크](https://www.erdcloud.com/d/WBqFhxKLx2hLs4pyg)
 
 ### API 명세서
 
