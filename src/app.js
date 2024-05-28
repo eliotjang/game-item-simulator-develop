@@ -8,7 +8,7 @@ import GameContentRouter from './routes/game-content.router.js';
 import errorHandlingMiddleware from './middlewares/error-handling.middleware.js';
 
 const app = express();
-const PORT = 3000;
+const PORT = 80;
 
 app.get('/', (req, res) => {
   res.send('게임 아이템 제작 시뮬레이터 서비스입니다.');
