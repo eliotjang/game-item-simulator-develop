@@ -1,8 +1,6 @@
 import jwt from 'jsonwebtoken';
 import userPrisma from '../utils/prisma/user.client.js';
-import dotEnv from 'dotenv';
-
-dotEnv.config();
+import config from '../utils/configs.js';
 
 // Request의 Authorization 헤더의 JWT로 인증된 사용자 검증 Middleware 구현
 export default async (req, res, next) => {
@@ -15,7 +13,7 @@ export default async (req, res, next) => {
 
     if (tokenType !== 'Bearer') throw new Error('토큰 타입이 일치하지 않습니다.');
 
-    const decodedToken = jwt.verify(token, process.env.CUSTOM_SECRET_KEY);
+    const decodedToken = jwt.verify(token, config.customSecretKey);
     const userId = decodedToken.userId;
 
     const user = await userPrisma.users.findFirst({

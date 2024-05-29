@@ -2,10 +2,8 @@ import express from 'express';
 import userPrisma from '../utils/prisma/user.client.js';
 import bcrypt from 'bcrypt';
 import Joi from 'joi';
-import dotEnv from 'dotenv';
 import jwt from 'jsonwebtoken';
-
-dotEnv.config();
+import config from '../utils/configs.js';
 
 // 회원가입 유효성 체크
 const createUserSchema = Joi.object({
@@ -73,7 +71,7 @@ router.post('/sign-in', async (req, res, next) => {
       {
         userId: user.userId,
       },
-      process.env.CUSTOM_SECRET_KEY
+      config.customSecretKey
     );
 
     // Authorization 헤더에 Bearer 토큰 형식 JWT 저장

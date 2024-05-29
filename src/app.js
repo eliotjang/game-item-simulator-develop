@@ -6,9 +6,10 @@ import CharacterInventoryRouter from './routes/character-inventory.router.js';
 import CharacterItemsRouter from './routes/character-items.router.js';
 import GameContentRouter from './routes/game-content.router.js';
 import errorHandlingMiddleware from './middlewares/error-handling.middleware.js';
+import config from './utils/configs.js';
 
 const app = express();
-const PORT = 3000;
+const PORT = config.serverPort;
 
 app.get('/', (req, res) => {
   res.send('게임 아이템 제작 시뮬레이터 서비스입니다.');
